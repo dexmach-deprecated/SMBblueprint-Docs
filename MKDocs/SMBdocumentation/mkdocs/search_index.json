@@ -1,0 +1,204 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to the SMB Blueprint\n\u00b6\n\n\nThe \nSMB Blueprint\n solution accelerator is a fast go to market solution to onboard Azure and Office 365.\n\n\nTarget Audience\n\u00b6\n\n\nThe targetted Audience are the CSP (Cloud Service Provider) partners. They can benefit from this solution\naccelerator to onboard new client using a fast track.\n\n\nAdditional info\n\u00b6\n\n\nThe solution can be used 'as is' to onboard client into Office 365 and\\or Azure. If the need exists\nthe provided scripts and templates can be leveraged as a starting point or can be directly integrated\ninto existing portals and offerings.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#welcome-to-the-smb-blueprint",
+            "text": "The  SMB Blueprint  solution accelerator is a fast go to market solution to onboard Azure and Office 365.",
+            "title": "Welcome to the SMB Blueprint"
+        },
+        {
+            "location": "/#target-audience",
+            "text": "The targetted Audience are the CSP (Cloud Service Provider) partners. They can benefit from this solution\naccelerator to onboard new client using a fast track.",
+            "title": "Target Audience"
+        },
+        {
+            "location": "/#additional-info",
+            "text": "The solution can be used 'as is' to onboard client into Office 365 and\\or Azure. If the need exists\nthe provided scripts and templates can be leveraged as a starting point or can be directly integrated\ninto existing portals and offerings.",
+            "title": "Additional info"
+        },
+        {
+            "location": "/install/",
+            "text": "Installation Guideliness\n\u00b6\n\n\nUsing the solution accelerator is quite simple, but some pre-requisites need to met.\n\n\nPrerequisites\n\u00b6\n\n\nthe following pre-requisites need to be met before installing the solution accelerator:\n\n\nPowerShell packagemanager\n\u00b6\n\n\nInstalling items from the Gallery requires the latest version of the PowerShellGet module, which is \navailable in Windows 10, in Windows Management Framework (WMF) 5.0, \nor in the MSI-based installer (for PowerShell 3 and 4).\n\n\n\n\n\n\nGet windows 10\n\n\n\n\n\n\nGet latest WMF (windows Management Framework)\n\n\n\n\n\n\nGet PowerShellGet for PowerShell 3 & 4\n\n\n\n\n\n\nMSOL powershell modules\n\u00b6\n\n\nExchange\n\u00b6\n\n\nInstallation\n\u00b6\n\n\nOpen a PowerShell prompt as Administrator (right click and select \n'Runas Administrator'\n)\n\n\nlocate the \nSMB Blueprint\n PowerShell module and install the module\nIf you cannot install the module using administrative access, you can use the \n-scope currentUser\n parameter and value.\n\n\n\n\nYou might receive a prompt to install nuget.exe\n\n\nYou might be asked for confirmation to install\n\n\n\n\nfind-module SMBblueprint | install-module\n\n\n\n\n\n\nYou can verify the installation by executing the following:\n\n\nGet-module -listAvailable | where-Object {$_.Name -like 'SMBblueprint'}\n\n\n\n\n\n\nImport the module to load the functions\n\n\nimport-module -Name SMBblueprint\n\n\n\n\n\nStart the Graphical interface\n\n\nStart-SmbGui\n\n\n\n\n\n\nNext Steps\n\u00b6\n\n\nLocate the Guideliness to get started with \nthe GUI\n or use the \nPowerShell prompt",
+            "title": "installation"
+        },
+        {
+            "location": "/install/#installation-guideliness",
+            "text": "Using the solution accelerator is quite simple, but some pre-requisites need to met.",
+            "title": "Installation Guideliness"
+        },
+        {
+            "location": "/install/#prerequisites",
+            "text": "the following pre-requisites need to be met before installing the solution accelerator:",
+            "title": "Prerequisites"
+        },
+        {
+            "location": "/install/#powershell-packagemanager",
+            "text": "Installing items from the Gallery requires the latest version of the PowerShellGet module, which is \navailable in Windows 10, in Windows Management Framework (WMF) 5.0, \nor in the MSI-based installer (for PowerShell 3 and 4).    Get windows 10    Get latest WMF (windows Management Framework)    Get PowerShellGet for PowerShell 3 & 4",
+            "title": "PowerShell packagemanager"
+        },
+        {
+            "location": "/install/#msol-powershell-modules",
+            "text": "",
+            "title": "MSOL powershell modules"
+        },
+        {
+            "location": "/install/#exchange",
+            "text": "",
+            "title": "Exchange"
+        },
+        {
+            "location": "/install/#installation",
+            "text": "Open a PowerShell prompt as Administrator (right click and select  'Runas Administrator' )  locate the  SMB Blueprint  PowerShell module and install the module\nIf you cannot install the module using administrative access, you can use the  -scope currentUser  parameter and value.   You might receive a prompt to install nuget.exe  You might be asked for confirmation to install   find-module SMBblueprint | install-module   You can verify the installation by executing the following:  Get-module -listAvailable | where-Object {$_.Name -like 'SMBblueprint'}   Import the module to load the functions  import-module -Name SMBblueprint  \nStart the Graphical interface  Start-SmbGui",
+            "title": "Installation"
+        },
+        {
+            "location": "/install/#next-steps",
+            "text": "Locate the Guideliness to get started with  the GUI  or use the  PowerShell prompt",
+            "title": "Next Steps"
+        },
+        {
+            "location": "/office365/",
+            "text": "",
+            "title": "Office 365"
+        },
+        {
+            "location": "/azure/",
+            "text": "Azure deployment\n\u00b6\n\n\n SMB Blueprint \n also provides possibilities to deploy a set of azure resources.\nThe Azure resources deployed are categorized as 'small', 'medium' and 'large'.\n3 denominators targeted at  SMB clients of different sizes and needs.\n\n\nSMB categorization\n\u00b6\n\n\nsmall\n\u00b6\n\n\nmedium\n\u00b6\n\n\nlarge\n\u00b6\n\n\nAdditional services\n\u00b6\n\n\n\u00b6",
+            "title": "Azure"
+        },
+        {
+            "location": "/azure/#azure-deployment",
+            "text": "SMB Blueprint   also provides possibilities to deploy a set of azure resources.\nThe Azure resources deployed are categorized as 'small', 'medium' and 'large'.\n3 denominators targeted at  SMB clients of different sizes and needs.",
+            "title": "Azure deployment"
+        },
+        {
+            "location": "/azure/#smb-categorization",
+            "text": "",
+            "title": "SMB categorization"
+        },
+        {
+            "location": "/azure/#small",
+            "text": "",
+            "title": "small"
+        },
+        {
+            "location": "/azure/#medium",
+            "text": "",
+            "title": "medium"
+        },
+        {
+            "location": "/azure/#large",
+            "text": "",
+            "title": "large"
+        },
+        {
+            "location": "/azure/#additional-services",
+            "text": "",
+            "title": "Additional services"
+        },
+        {
+            "location": "/powershell-office365/",
+            "text": "Office 365 deployment\n\u00b6\n\n\nin order to deploy users and\\or groups to Office 3645 using PowerShell use the following code:\n\n\nStart-Office356deployment - csv <csvpath>",
+            "title": "Office 365"
+        },
+        {
+            "location": "/powershell-office365/#office-365-deployment",
+            "text": "in order to deploy users and\\or groups to Office 3645 using PowerShell use the following code:  Start-Office356deployment - csv <csvpath>",
+            "title": "Office 365 deployment"
+        },
+        {
+            "location": "/powershell-azure/",
+            "text": "",
+            "title": "Azure"
+        },
+        {
+            "location": "/azure-intro/",
+            "text": "Azure Resource Manager\n\u00b6\n\n\nThe infrastructure for your application is typically made up of many components \u2013 maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.\n\n\nTerminology\n\u00b6\n\n\nIf you are new to Azure Resource Manager, there are some terms you might not be familiar with.\n\n\n\n\nresource\n - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.\n\n\nresource group\n - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.\n\n\nresource provider\n - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute, which supplies the virtual machine resource, Microsoft.Storage, which supplies the storage account resource, and Microsoft.Web, which supplies resources related to web apps. See Resource providers.\n\n\nResource Manager template\n - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See Template deployment.\n\n\ndeclarative syntax\n - Syntax that lets you state \"Here is what I intend to create\" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.\n\n\n\n\nThe benefits of using Resource Manager\n\u00b6\n\n\nResource Manager provides several benefits:\n\n\n\n\nYou can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.\n\n\nYou can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.\n\n\nYou can manage your infrastructure through declarative templates rather than scripts.\n\n\nYou can define the dependencies between resources so they are deployed in the correct order.\n\n\nYou can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.\n\n\nYou can apply tags to resources to logically organize all the resources in your subscription.\n\n\nYou can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.\n\n\n\n\nTemplate deployment\n\u00b6\n\n\nWith Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.\n\n\nIn its simplest form, a template contains the following elements:\n\n\nCopy\n{\n  \"$schema\": \"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"\",\n  \"parameters\": {  },\n  \"variables\": {  },\n  \"resources\": [  ],\n  \"outputs\": {  }\n}\n\n\n\n\nIn the \nparameters element\n, you specify values that enable customization and flexibility in deployment.\n For example, you can pass parameter values that tailor deployment for your test environment. \n By specifying the parameters, you can use the same template to deploy your solution to different environments.\n\n\nIn the \nvariables element\n, you specify values that are reused throughout the template, or values\n that are constructed from other values (like parameters).\n\n\nIn the \nresources element\n, you specify the components of your infrastructure. \nYou define as many resources as your solution needs.\n\n\nIn the \noutputs element\n, you specify any values that are returned from the deployment \n(such as URIs from deployed resources).\n\n\nAzure Resource Manager analyzes dependencies to ensure resources are created in the correct order. \nIf one resource relies on a value from another resource (such as a virtual machine needing a storage \naccount for disks), you set a dependency.\n\n\nYou do not have to define your entire infrastructure in a single template. Often, it makes sense to \ndivide your deployment requirements into a set of targeted, purpose-specific templates. \nYou can easily reuse these templates for different solutions. To deploy a particular solution, \nyou create a master template that links all the required templates.\n\n\nYou can also use the template for updates to the infrastructure. For example, you can add a resource\n to your solution and add configuration rules for the resources that are already deployed. \n If the template specifies creating a resource but that resource already exists, \n Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager \n updates the existing asset to the same state as it would be as new.\n\n\nPractical Examples\n\u00b6",
+            "title": "introduction"
+        },
+        {
+            "location": "/azure-intro/#azure-resource-manager",
+            "text": "The infrastructure for your application is typically made up of many components \u2013 maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.",
+            "title": "Azure Resource Manager"
+        },
+        {
+            "location": "/azure-intro/#terminology",
+            "text": "If you are new to Azure Resource Manager, there are some terms you might not be familiar with.   resource  - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.  resource group  - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.  resource provider  - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute, which supplies the virtual machine resource, Microsoft.Storage, which supplies the storage account resource, and Microsoft.Web, which supplies resources related to web apps. See Resource providers.  Resource Manager template  - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See Template deployment.  declarative syntax  - Syntax that lets you state \"Here is what I intend to create\" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.",
+            "title": "Terminology"
+        },
+        {
+            "location": "/azure-intro/#the-benefits-of-using-resource-manager",
+            "text": "Resource Manager provides several benefits:   You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.  You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  You can manage your infrastructure through declarative templates rather than scripts.  You can define the dependencies between resources so they are deployed in the correct order.  You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.  You can apply tags to resources to logically organize all the resources in your subscription.  You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.",
+            "title": "The benefits of using Resource Manager"
+        },
+        {
+            "location": "/azure-intro/#template-deployment",
+            "text": "With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.  In its simplest form, a template contains the following elements:  Copy\n{\n  \"$schema\": \"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"\",\n  \"parameters\": {  },\n  \"variables\": {  },\n  \"resources\": [  ],\n  \"outputs\": {  }\n}  In the  parameters element , you specify values that enable customization and flexibility in deployment.\n For example, you can pass parameter values that tailor deployment for your test environment. \n By specifying the parameters, you can use the same template to deploy your solution to different environments.  In the  variables element , you specify values that are reused throughout the template, or values\n that are constructed from other values (like parameters).  In the  resources element , you specify the components of your infrastructure. \nYou define as many resources as your solution needs.  In the  outputs element , you specify any values that are returned from the deployment \n(such as URIs from deployed resources).  Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. \nIf one resource relies on a value from another resource (such as a virtual machine needing a storage \naccount for disks), you set a dependency.  You do not have to define your entire infrastructure in a single template. Often, it makes sense to \ndivide your deployment requirements into a set of targeted, purpose-specific templates. \nYou can easily reuse these templates for different solutions. To deploy a particular solution, \nyou create a master template that links all the required templates.  You can also use the template for updates to the infrastructure. For example, you can add a resource\n to your solution and add configuration rules for the resources that are already deployed. \n If the template specifies creating a resource but that resource already exists, \n Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager \n updates the existing asset to the same state as it would be as new.",
+            "title": "Template deployment"
+        },
+        {
+            "location": "/azure-intro/#practical-examples",
+            "text": "",
+            "title": "Practical Examples"
+        },
+        {
+            "location": "/azure-arm/",
+            "text": "",
+            "title": "Resource Manager"
+        },
+        {
+            "location": "/microsoft/",
+            "text": "\u00b6\n\n\nYour organization has goals, and inovativ will help you to achieve them. That is what our team is committed to - from consultant to back office, and from developer to IT architect. Together we make good on our promise.\n\n\nWe do as we say\n\u00b6\n\n\nInovativ does not raise false expectations. Why should we? Reality gives us all the opportunities we need. And, if during a project you face unexpected obstacles, we will do our utmost to get you back on track.\n\n\nWe love working with you\n\u00b6\n\n\nWe do not employ sales executives or account managers. Our consultants both advise you and implement the solutions. We offer short lines of communication with the relevant people, so that you will know what to expect.\n\n\nOne contact, and a wealth of expertise\n\u00b6\n\n\nEven when you are assisted by a single consultant, he is backed up by an entire team with a wealth of experience, know-how and creative insight. We believe in working together and letting each member of the team do what they do best.\n\n\nOur method\n\u00b6\n\n\nWe want to make sure that every project is executed perfectly and adds to the knowledge in your organization. That is why we follow a set progression of steps in all of our projects.\n\n\n\n\nInventory\n: We analyze the existing environment, clean it up, and prepare it for the upcoming project.\n\n\nRequirements\n: In a workshop, we consult with you to determine the conditions and wishes that should apply to the desired solution.\n\n\nDesign\n: We create a design, again in dialogue with you.\n\n\nBuild\n: Your IT department is responsible for building the new platform. The major advantage of this approach is that your organization has intimate knowledge of the new platform.\n\n\nMigration\n: The existing environment is migrated to the new platform. In a 'green field' environment, this phase simply consists of starting to use the new platform.\n\n\nDocumentation\n: We document the project extensively and turn it over to you.",
+            "title": "Microsoft"
+        },
+        {
+            "location": "/microsoft/#we-do-as-we-say",
+            "text": "Inovativ does not raise false expectations. Why should we? Reality gives us all the opportunities we need. And, if during a project you face unexpected obstacles, we will do our utmost to get you back on track.",
+            "title": "We do as we say"
+        },
+        {
+            "location": "/microsoft/#we-love-working-with-you",
+            "text": "We do not employ sales executives or account managers. Our consultants both advise you and implement the solutions. We offer short lines of communication with the relevant people, so that you will know what to expect.",
+            "title": "We love working with you"
+        },
+        {
+            "location": "/microsoft/#one-contact-and-a-wealth-of-expertise",
+            "text": "Even when you are assisted by a single consultant, he is backed up by an entire team with a wealth of experience, know-how and creative insight. We believe in working together and letting each member of the team do what they do best.",
+            "title": "One contact, and a wealth of expertise"
+        },
+        {
+            "location": "/microsoft/#our-method",
+            "text": "We want to make sure that every project is executed perfectly and adds to the knowledge in your organization. That is why we follow a set progression of steps in all of our projects.   Inventory : We analyze the existing environment, clean it up, and prepare it for the upcoming project.  Requirements : In a workshop, we consult with you to determine the conditions and wishes that should apply to the desired solution.  Design : We create a design, again in dialogue with you.  Build : Your IT department is responsible for building the new platform. The major advantage of this approach is that your organization has intimate knowledge of the new platform.  Migration : The existing environment is migrated to the new platform. In a 'green field' environment, this phase simply consists of starting to use the new platform.  Documentation : We document the project extensively and turn it over to you.",
+            "title": "Our method"
+        },
+        {
+            "location": "/inovativ/",
+            "text": "\u00b6\n\n\nYour organization has goals, and inovativ will help you to achieve them. That is what our team is committed to - from consultant to back office, and from developer to IT architect. Together we make good on our promise.\n\n\nWe do as we say\n\u00b6\n\n\nInovativ does not raise false expectations. Why should we? Reality gives us all the opportunities we need. And, if during a project you face unexpected obstacles, we will do our utmost to get you back on track.\n\n\nWe love working with you\n\u00b6\n\n\nWe do not employ sales executives or account managers. Our consultants both advise you and implement the solutions. We offer short lines of communication with the relevant people, so that you will know what to expect.\n\n\nOne contact, and a wealth of expertise\n\u00b6\n\n\nEven when you are assisted by a single consultant, he is backed up by an entire team with a wealth of experience, know-how and creative insight. We believe in working together and letting each member of the team do what they do best.\n\n\nOur method\n\u00b6\n\n\nWe want to make sure that every project is executed perfectly and adds to the knowledge in your organization. That is why we follow a set progression of steps in all of our projects.\n\n\n\n\nInventory\n: We analyze the existing environment, clean it up, and prepare it for the upcoming project.\n\n\nRequirements\n: In a workshop, we consult with you to determine the conditions and wishes that should apply to the desired solution.\n\n\nDesign\n: We create a design, again in dialogue with you.\n\n\nBuild\n: Your IT department is responsible for building the new platform. The major advantage of this approach is that your organization has intimate knowledge of the new platform.\n\n\nMigration\n: The existing environment is migrated to the new platform. In a 'green field' environment, this phase simply consists of starting to use the new platform.\n\n\nDocumentation\n: We document the project extensively and turn it over to you.",
+            "title": "Inovativ"
+        },
+        {
+            "location": "/inovativ/#we-do-as-we-say",
+            "text": "Inovativ does not raise false expectations. Why should we? Reality gives us all the opportunities we need. And, if during a project you face unexpected obstacles, we will do our utmost to get you back on track.",
+            "title": "We do as we say"
+        },
+        {
+            "location": "/inovativ/#we-love-working-with-you",
+            "text": "We do not employ sales executives or account managers. Our consultants both advise you and implement the solutions. We offer short lines of communication with the relevant people, so that you will know what to expect.",
+            "title": "We love working with you"
+        },
+        {
+            "location": "/inovativ/#one-contact-and-a-wealth-of-expertise",
+            "text": "Even when you are assisted by a single consultant, he is backed up by an entire team with a wealth of experience, know-how and creative insight. We believe in working together and letting each member of the team do what they do best.",
+            "title": "One contact, and a wealth of expertise"
+        },
+        {
+            "location": "/inovativ/#our-method",
+            "text": "We want to make sure that every project is executed perfectly and adds to the knowledge in your organization. That is why we follow a set progression of steps in all of our projects.   Inventory : We analyze the existing environment, clean it up, and prepare it for the upcoming project.  Requirements : In a workshop, we consult with you to determine the conditions and wishes that should apply to the desired solution.  Design : We create a design, again in dialogue with you.  Build : Your IT department is responsible for building the new platform. The major advantage of this approach is that your organization has intimate knowledge of the new platform.  Migration : The existing environment is migrated to the new platform. In a 'green field' environment, this phase simply consists of starting to use the new platform.  Documentation : We document the project extensively and turn it over to you.",
+            "title": "Our method"
+        }
+    ]
+}
