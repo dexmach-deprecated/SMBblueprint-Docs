@@ -12,9 +12,9 @@
 	<title>Azure - SMB Blueprint</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -32,6 +32,7 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
+            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -39,6 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            
 
             <!-- Main title -->
             <a class="navbar-brand" href="..">SMB Blueprint</a>
@@ -46,48 +48,49 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
             
-            
-                <li >
-                    <a href="..">Introduction</a>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
                         
+                            
 <li >
     <a href="../install/">installation</a>
 </li>
 
-                    
                         
+                            
 <li >
     <a href="../office365/">Office 365</a>
 </li>
 
-                    
                         
+                            
 <li >
     <a href="../azure/">Azure</a>
 </li>
 
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technical overview <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
                         
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technical overview <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">PowerShell</a>
     <ul class="dropdown-menu">
@@ -107,8 +110,8 @@
     </ul>
   </li>
 
-                    
                         
+                            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Azure</a>
     <ul class="dropdown-menu">
@@ -121,58 +124,69 @@
         
             
 <li >
-    <a href="../azure-arm/">Resource Manager</a>
+    <a href="../azure-arm/">Resource Manager deployment</a>
 </li>
 
         
     </ul>
   </li>
 
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
                         
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
 <li >
     <a href="../microsoft/">Microsoft</a>
 </li>
 
-                    
                         
+                            
 <li >
     <a href="../inovativ/">Inovativ</a>
 </li>
 
-                    
-                    </ul>
-                </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
             
-            
-            </ul>
 
-            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                <li >
-                    <a rel="next" href="../powershell-office365/">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="../azure-intro/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
+                
+                    <li >
+                        <a rel="next" href="../powershell-office365/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../azure-intro/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/Inovativ/SMBblueprint-Docs">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
                 
             </ul>
         </div>
@@ -180,20 +194,22 @@
 </div>
 
         <div class="container">
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
     </ul>
 </div></div>
-            <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 </div>
+            
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
         <script src="../js/jquery-1.10.2.min.js"></script>
@@ -227,5 +243,6 @@
                 </div>
             </div>
         </div>
+
     </body>
 </html>
