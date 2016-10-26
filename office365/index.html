@@ -195,6 +195,7 @@
 <p>The deployment needs to be started with a certain set of parameters that specify both the connection info towards the target tenant (PowerShell-parameters), as well as a CSV file that contains the user and group payload to be provisioned.</p>
 <pre><code>Note: For the full explanation of the parameters, refer to the PowerShell documentation of the Office deployment cmdlet.
 ````
+
 ### CSV
 
 The deployment needs a valid CSV file with the following information:
@@ -223,6 +224,7 @@ Jon,Van Meirvenne,Consultant,Jon.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGr
 
 Before this solution is used, a validated custom domain needs to be present in the tenant's configuration.
 By default, the tenant domain that is marked as default will be used as primary mail suffix. A specific domain can be chosen by providing the '-MailDomain &lt;MailDomainName&gt;' parameter (in the GUI, an option to control this is available as well).
+
 </code></pre>
 
 <p>Note: While using the standard <TenantName>@onmicrosoft.com suffix is not blocked, the user won't be able to send/receive mails.
@@ -233,8 +235,8 @@ By default, the tenant domain that is marked as default will be used as primary 
 <p>Before starting the provisioning, a few conditions are checked:
 <em> The CSP credential must be valid
 </em> The entered Tenant ID or Domain must be present in the CSP partner's directory
-*<em> Note: Do not confuse the tenant-domain with the tenant's own domains. The tenant domain is the value that is shown in the CSP portal, and not the tenant's admin portal!
-</em> The licenses specified in the CSV-file must not be more that the ones available in the subscription</p>
+    * Note: Do not confuse the tenant-domain with the tenant's own domains. The tenant domain is the value that is shown in the CSP portal, and not the tenant's admin portal!
+* The licenses specified in the CSV-file must not be more that the ones available in the subscription</p>
 <h3 id="csp-admin-account">CSP Admin account<a class="headerlink" href="#csp-admin-account" title="Permanent link">&para;</a></h3>
 <p>Not all resources can be reliably deployed by the CSP model currently. This consists of:
 <em> Onedrive For Business
