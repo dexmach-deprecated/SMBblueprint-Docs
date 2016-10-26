@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Inovativ">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>ARM deployment - SMB Blueprint</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">SMB Blueprint</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../install/">installation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../office365-install/">Office 365</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../azure-install/">Azure</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">PowerShell</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../powershell-office365/">Office 365</a>
+</li>
+
+        
+            
+<li >
+    <a href="../powershell-azure/">Azure</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Azure</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../azure-smb-intro/">SMB overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../azure-arm-intro/">ARM introduction</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">ARM deployment</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../microsoft/">Microsoft</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../inovativ/">Inovativ</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../azure-arm-intro/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../microsoft/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/Inovativ/SMBblueprint-Docs">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#overview">Overview</a></li>
+        
+            <li><a href="#azure-deploy">Azure deploy</a></li>
+        
+            <li><a href="#network-deployment">Network deployment</a></li>
+        
+            <li><a href="#infrastructure-deployment">Infrastructure deployment</a></li>
+        
+            <li><a href="#oms-workspace-deployment">OMS Workspace deployment</a></li>
+        
+            <li><a href="#oms-azure-automation-deployment">OMS Azure Automation deployment</a></li>
+        
+            <li><a href="#additional-services">Additional services</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+<p>The solution we deploy consists of several components.</p>
+<ul>
+<li>A virtual network</li>
+<li>Virtual machines, storage, etc</li>
+<li>Operations Management Suite (Free)</li>
+<li>optional recovery services (backup)</li>
+<li>optional additional Virtual machines</li>
+<li>optional Azure SQL</li>
+</ul>
+<p><img alt="Azure ARM template overview" src="../images\arm-template-overview.svg" /></p>
+<p>Below you can find the detail per resource we deploy</p>
+<h2 id="azure-deploy"><img alt="ARM" src="../images\ARMExplorer.svg" /> Azure deploy<a class="headerlink" href="#azure-deploy" title="Permanent link">&para;</a></h2>
+<p>The azuredeploy.json is the entry point of the azure deployment. It really serves as the orchestration 
+file to call out to other deployments or resources.<br />
+Single instance resources will be deployed if defined as optional.
+<img alt="Azure ARM template azure deploy" src="../images\arm-template-azuredeploy.svg" />
+In the following topics we will elaborate on the different deployments or resources.
+With a limited set of parameters we are able to rollout a full infrastructure.
+Given the options we could identify 3 distinct deployment models</p>
+<ul>
+<li>Small</li>
+<li>Medium</li>
+<li>Large</li>
+</ul>
+<p>Let's dive into the different models</p>
+<h3 id="small">Small<a class="headerlink" href="#small" title="Permanent link">&para;</a></h3>
+<p>The small deployment comes down to the deployment of 1 virtual machine.</p>
+<p><em>an overview of the resources deployed</em></p>
+<p><img alt="Azure Portal small overview" src="../images\azure-portal-small-overview.png" title="Azure Portal small overview" /></p>
+<p>The following resources are deployed:</p>
+<ul>
+<li>Network<ul>
+<li>a virtual network with different subnets to support future growth</li>
+<li>network security groups bound to the subnets to provide security</li>
+</ul>
+</li>
+<li>Infrastructure<ul>
+<li>a storage account to host the disks for our virtual machine</li>
+<li>a virtual machine of type DS2_V2</li>
+<li>a network card to provide network connectivity</li>
+</ul>
+</li>
+<li>Operations Management Suite<ul>
+<li>OMS Workspace</li>
+<li>Azure Automation account</li>
+</ul>
+</li>
+</ul>
+<p>In addition the following resources can optionally be deployed:</p>
+<ul>
+<li>backup services</li>
+<li>a gateway to support onprem connectivity</li>
+<li>an Azure SQL server and database</li>
+<li>an additional Virtual machine<ul>
+<li>storage account</li>
+<li>virtual machine</li>
+<li>network card</li>
+</ul>
+</li>
+</ul>
+<h3 id="medium">Medium<a class="headerlink" href="#medium" title="Permanent link">&para;</a></h3>
+<p>The medium deployment does not differ from the small deployment except from the virtual machine sizing.</p>
+<p>Instead of a DS2_V2 a DS3_V2 is used instead for better performance</p>
+<p><em>an overview of the resources deployed</em></p>
+<p><img alt="Azure Portal medium overview" src="../images\azure-portal-small-overview.png" title="Azure Portal medium overview" /></p>
+<p>For more information see <a href="#Small">Small deployment</a></p>
+<h3 id="large">Large<a class="headerlink" href="#large" title="Permanent link">&para;</a></h3>
+<p>The small deployment comes down to the deployment of 1 virtual machine.</p>
+<p><em>an overview of the resources deployed</em></p>
+<p><img alt="Azure Portal small overview" src="../images\azure-portal-small-overview.png" title="Azure Portal small overview" /></p>
+<p>The following resources are deployed:</p>
+<ul>
+<li>Network<ul>
+<li>a virtual network with different subnets to support future growth</li>
+<li>network security groups bound to the subnets to provide security</li>
+</ul>
+</li>
+<li>Infrastructure<ul>
+<li>a storage account to host the disks for our virtual machine</li>
+<li>a virtual machine of type DS2_V2</li>
+<li>a network card to provide network connectivity</li>
+</ul>
+</li>
+<li>Operations Management Suite<ul>
+<li>OMS Workspace</li>
+<li>Azure Automation account</li>
+</ul>
+</li>
+</ul>
+<p>In addition the following resources can optionally be deployed:</p>
+<ul>
+<li>backup services</li>
+<li>a gateway to support onprem connectivity</li>
+<li>an Azure SQL server and database</li>
+<li>an additional Virtual machine<ul>
+<li>storage account</li>
+<li>virtual machine</li>
+<li>network card</li>
+</ul>
+</li>
+</ul>
+<h2 id="network-deployment"><img alt="vnet" src="../images\AddressSpace.svg" /> Network deployment<a class="headerlink" href="#network-deployment" title="Permanent link">&para;</a></h2>
+<p>From within the <em>azuredeploy.json</em> the network resources are deployed using a <em>generic</em> deployment resource.
+The deployment resource references an ARM template (public available) containing the network resources.</p>
+<p>As the picture below visualizes, the network ARM template contains several resources;</p>
+<ol>
+<li>the virtual network</li>
+<li>the network security groups</li>
+</ol>
+<p><sup><em>figure: Network deployment overview</em></sup>
+Network deployment overview</p>
+<h3 id="virtual-network">Virtual network<a class="headerlink" href="#virtual-network" title="Permanent link">&para;</a></h3>
+<p>The ip range for the virtual network is captured in a variable and will be the same for every deployment.
+The table below provides an overview of the ip ranges per subnet.
+By default the management and gateway subnet are deployed, other subnets are deployed depending on the size of customer.</p>
+<p><sup><em>table: subnet overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>Subnet</th>
+<th>Subnet name</th>
+<th>IP range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>management</td>
+<td>sn-managementServices</td>
+<td>10.3.1.0/24</td>
+</tr>
+<tr>
+<td>gateway</td>
+<td>GatewaySubnet</td>
+<td>10.3.5.0/24</td>
+</tr>
+<tr>
+<td>DMZ *</td>
+<td>sn-dmzServices</td>
+<td>10.3.2.0/24</td>
+</tr>
+<tr>
+<td>Emergency *</td>
+<td>sn-emergencyServices</td>
+<td>10.3.4.0/24</td>
+</tr>
+</tbody>
+</table>
+<p><em>*depends on the customer size choosen during deployment</em></p>
+<h3 id="network-security-groups">Network security groups<a class="headerlink" href="#network-security-groups" title="Permanent link">&para;</a></h3>
+<p><img src="\images\arm-template-network.svg" alt="nsg">
+Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny 
+network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets 
+or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules 
+apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be 
+restricted further by associating a NSG directly to that VM.</p>
+<p>Let's have a look at the different network security groups used in the solution.</p>
+<h4 id="management-nsg">management NSG<a class="headerlink" href="#management-nsg" title="Permanent link">&para;</a></h4>
+<p>The management network security group is deployed and linked to the corresponsong sn-managementServices
+subnet as part of the virtual network.
+The managementServices subnet hosts all 'management' services like for example domain controllers,
+file servers, etc.</p>
+<blockquote>
+<p>Depending on customer size, different rules are deployed.</p>
+</blockquote>
+<h5 id="small-and-medium">small and medium<a class="headerlink" href="#small-and-medium" title="Permanent link">&para;</a></h5>
+<p><sup><em>table: small and medium size rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow  *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>3</td>
+<td>emergency-rds-in-allow *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>4</td>
+<td>emergency-pshttps-in-allow  *</td>
+<td>tcp</td>
+<td>10.</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+</tbody>
+</table>
+<h5 id="large_1">large<a class="headerlink" href="#large_1" title="Permanent link">&para;</a></h5>
+<p><sup><em>table: large size rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow  *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>3</td>
+<td>emergency-rds-in-allow *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>4</td>
+<td>emergency-pshttps-in-allow  *</td>
+<td>tcp</td>
+<td>10.</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dmz-nsg-large">DMZ NSG (large)<a class="headerlink" href="#dmz-nsg-large" title="Permanent link">&para;</a></h4>
+<p>The DMZ network security group is deployed and linked to the corresponsong sn-dmzServices
+subnet as part of the virtual network.
+The dmz services network security group contains the following rules:</p>
+<p><sup><em>table: large size rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow  *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>3</td>
+<td>emergency-rds-in-allow *</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>4</td>
+<td>emergency-pshttps-in-allow  *</td>
+<td>tcp</td>
+<td>10.</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+</tbody>
+</table>
+<h4 id="emergency-nsg-large">Emergency NSG (large)<a class="headerlink" href="#emergency-nsg-large" title="Permanent link">&para;</a></h4>
+<p>The emergency network security group is deployed and linked to the corresponsong sn-EmergencyServices
+subnet as part of the virtual network.
+The emergency services network security group contains the following rules:</p>
+<p><sup><em>table: rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+</tbody>
+</table>
+<h4 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h4>
+<p>Files used in the deployment (depending on provided selection): </p>
+<p><sup><em>table: network templates overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>network-small.json</td>
+</tr>
+<tr>
+<td>2</td>
+<td>network-medium.json</td>
+</tr>
+<tr>
+<td>3</td>
+<td>network-large.json</td>
+</tr>
+</tbody>
+</table>
+<p>optional parameter files are provided as well:</p>
+<p><sup><em>table: parameter files</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>network-small.parameters.json</td>
+</tr>
+<tr>
+<td>2</td>
+<td>network-medium.parameters.json</td>
+</tr>
+<tr>
+<td>3</td>
+<td>network-large.parameters.json</td>
+</tr>
+</tbody>
+</table>
+<h2 id="infrastructure-deployment">Infrastructure deployment<a class="headerlink" href="#infrastructure-deployment" title="Permanent link">&para;</a></h2>
+<h2 id="oms-workspace-deployment">OMS Workspace deployment<a class="headerlink" href="#oms-workspace-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="solutions">Solutions<a class="headerlink" href="#solutions" title="Permanent link">&para;</a></h3>
+<h4 id="software-updates">Software updates<a class="headerlink" href="#software-updates" title="Permanent link">&para;</a></h4>
+<p><img alt="OMS Software updates" src="../images\azure-portal-small-overview.png" title="OMS Software updates" /></p>
+<h4 id="security-and-compliance">Security and Compliance<a class="headerlink" href="#security-and-compliance" title="Permanent link">&para;</a></h4>
+<p>Prevent, detect, and respond to threats with increased visibility. </p>
+<p>Take control of cloud security by defining policies that recommend and monitor security configurations. 
+Leverage Microsoft security data and analysis to perform more intelligent and effective threat detection.
+<img alt="OMS Security and Compliance" src="../images\azure-portal-small-overview.png" title="OMS Security and Compliance" /></p>
+<h4 id="change-tracking">Change tracking<a class="headerlink" href="#change-tracking" title="Permanent link">&para;</a></h4>
+<p><img alt="OMS Change tracking" src="../images\azure-portal-small-overview.png" title="OMS Change tracking" /></p>
+<h4 id="agent-heatlh">Agent Heatlh<a class="headerlink" href="#agent-heatlh" title="Permanent link">&para;</a></h4>
+<p><img alt="OMS Agent health" src="../images\azure-portal-small-overview.png" title="OMS Agent health" /></p>
+<h3 id="saved-searches">Saved searches<a class="headerlink" href="#saved-searches" title="Permanent link">&para;</a></h3>
+<p>Saved searches help in identifying potential issues.</p>
+<h4 id="query-1">query 1<a class="headerlink" href="#query-1" title="Permanent link">&para;</a></h4>
+<h2 id="oms-azure-automation-deployment">OMS Azure Automation deployment<a class="headerlink" href="#oms-azure-automation-deployment" title="Permanent link">&para;</a></h2>
+<h2 id="additional-services">Additional services<a class="headerlink" href="#additional-services" title="Permanent link">&para;</a></h2>
+<h3 id="additional-vm">Additional VM<a class="headerlink" href="#additional-vm" title="Permanent link">&para;</a></h3>
+<h3 id="vpn-gateway">VPN gateway<a class="headerlink" href="#vpn-gateway" title="Permanent link">&para;</a></h3>
+<h3 id="azure-sql-database">Azure SQL database<a class="headerlink" href="#azure-sql-database" title="Permanent link">&para;</a></h3>
+<h4 id="small_1">Small<a class="headerlink" href="#small_1" title="Permanent link">&para;</a></h4></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

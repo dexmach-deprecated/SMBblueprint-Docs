@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Inovativ - SMB Blueprint</title>
+	<title>Azure - SMB Blueprint</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -59,7 +59,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -76,8 +76,8 @@
 
                         
                             
-<li >
-    <a href="../azure-install/">Azure</a>
+<li class="active">
+    <a href="./">Azure</a>
 </li>
 
                         
@@ -143,7 +143,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -154,8 +154,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Inovativ</a>
+<li >
+    <a href="../inovativ/">Inovativ</a>
 </li>
 
                         
@@ -174,12 +174,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../microsoft/">
+                        <a rel="next" href="../office365-install/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../powershell-office365/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -204,40 +204,103 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#we-do-as-we-say">We do as we say</a></li>
+        <li class="main active"><a href="#azure-deployment">Azure deployment</a></li>
         
-    
-        <li class="main "><a href="#we-love-working-with-you">We love working with you</a></li>
+            <li><a href="#graphical-user-interface">Graphical User interface</a></li>
         
-    
-        <li class="main "><a href="#one-contact-and-a-wealth-of-expertise">One contact, and a wealth of expertise</a></li>
-        
-    
-        <li class="main "><a href="#our-method">Our method</a></li>
+            <li><a href="#powershell">PowerShell</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="_1"><img alt="Inovativ" src="../images/inovativ.png" title="Inovativ Logo" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Your organization has goals, and inovativ will help you to achieve them. That is what our team is committed to - from consultant to back office, and from developer to IT architect. Together we make good on our promise.</p>
-<h2 id="we-do-as-we-say">We do as we say<a class="headerlink" href="#we-do-as-we-say" title="Permanent link">&para;</a></h2>
-<p>Inovativ does not raise false expectations. Why should we? Reality gives us all the opportunities we need. And, if during a project you face unexpected obstacles, we will do our utmost to get you back on track.</p>
-<h2 id="we-love-working-with-you">We love working with you<a class="headerlink" href="#we-love-working-with-you" title="Permanent link">&para;</a></h2>
-<p>We do not employ sales executives or account managers. Our consultants both advise you and implement the solutions. We offer short lines of communication with the relevant people, so that you will know what to expect.</p>
-<h2 id="one-contact-and-a-wealth-of-expertise">One contact, and a wealth of expertise<a class="headerlink" href="#one-contact-and-a-wealth-of-expertise" title="Permanent link">&para;</a></h2>
-<p>Even when you are assisted by a single consultant, he is backed up by an entire team with a wealth of experience, know-how and creative insight. We believe in working together and letting each member of the team do what they do best.</p>
-<h2 id="our-method">Our method<a class="headerlink" href="#our-method" title="Permanent link">&para;</a></h2>
-<p>We want to make sure that every project is executed perfectly and adds to the knowledge in your organization. That is why we follow a set progression of steps in all of our projects.</p>
+<h1 id="azure-deployment">Azure deployment<a class="headerlink" href="#azure-deployment" title="Permanent link">&para;</a></h1>
+<p>Now that you have the solution available on your computer, you can launch an azure deployment using an
+Graphical user interface or using bare powershell commandlets.<br />
+Both are discussed below;</p>
+<p>For an overview of the resources deployed and their dependencies you can consult the 
+<a href="../azure-smb-intro/">technical documentation</a></p>
+<h2 id="graphical-user-interface">Graphical User interface<a class="headerlink" href="#graphical-user-interface" title="Permanent link">&para;</a></h2>
+<p>The graphical user interface is contained in the PowerShell module you install in the previous steps.
+to launch the SMBblueprint GUI;</p>
 <ul>
-<li><em>Inventory</em>: We analyze the existing environment, clean it up, and prepare it for the upcoming project.</li>
-<li><em>Requirements</em>: In a workshop, we consult with you to determine the conditions and wishes that should apply to the desired solution.</li>
-<li><em>Design</em>: We create a design, again in dialogue with you.</li>
-<li><em>Build</em>: Your IT department is responsible for building the new platform. The major advantage of this approach is that your organization has intimate knowledge of the new platform.</li>
-<li><em>Migration</em>: The existing environment is migrated to the new platform. In a 'green field' environment, this phase simply consists of starting to use the new platform.</li>
-<li><em>Documentation</em>: We document the project extensively and turn it over to you.</li>
-</ul></div>
+<li>Click the start button, type PowerShell and hit enter  </li>
+<li>In the PowerShell prompt load the module</li>
+</ul>
+<pre><code class="PowerShell">Import-Module -Name SMBBlueprint
+</code></pre>
+
+<ul>
+<li>To start the Graphical user interface</li>
+</ul>
+<pre><code class="PowerShell">Start-SMBDeploymentGUI
+</code></pre>
+
+<ul>
+<li>Provide your CSP credentials and click <strong>Connect</strong> and selec the tenant you want to manage from the dropdown  </li>
+</ul>
+<p><img alt="SMBblueprint GUI login" src="../images\smbblueprint_azure_authentication.png" /></p>
+<ul>
+<li>Select the Azure tab in the taks pane on the left</li>
+<li>Provide the deployment characteristics<ul>
+<li>Select the correct subscription (in larger environments multiple subscriptions can exist)</li>
+<li>Choose a deployment category (for an overview of the different resources per category consult
+ the <a href="../azure-smb-intro/">overview</a>)</li>
+<li>Select any additional services needed<ul>
+<li>an additional VM size</li>
+<li>an extra Azure SQL database</li>
+<li>Backup services (note; if selected all vm's deployed will be automatically protected)</li>
+<li>A VPN gateway (although you will still need to setup the connection)</li>
+</ul>
+</li>
+<li>the customer name or abbriviation. (this will be used as a prefix for all resource deployments 
+and the domainname)  </li>
+</ul>
+</li>
+</ul>
+<p><img alt="SMBblueprint Azure overview" src="../images\smbblueprint_azure_deploy.png" /></p>
+<ul>
+<li>Hit the <strong>Deploy Solution</strong> button</li>
+<li>The deployment progress can be seen in the powershell prompt with the progress indicators</li>
+<li>In addition, all actions are logged in a log file specific for this deployment. The logfile can be
+ consulted by clicking <strong>Log</strong> in the left task pane  </li>
+</ul>
+<p><img alt="SMBBlueprint log overview" src="../images\smbblueprint_azure_log.png" /></p>
+<h2 id="powershell">PowerShell<a class="headerlink" href="#powershell" title="Permanent link">&para;</a></h2>
+<p>As this is a PowerShell module you can offcourse kick off a deployment using pure PowerShell.
+To start a deployment follow the steps below;</p>
+<ul>
+<li>Click the start button, type PowerShell and hit enter  </li>
+<li>In the PowerShell prompt load the module</li>
+</ul>
+<pre><code class="PowerShell">Import-Module -Name SMBBlueprint
+</code></pre>
+
+<ul>
+<li>Execute the PowerShell code below to start a deployment with specified parameters.<br />
+This example will deploy a small SMB scenario to the Contoso.com CSP tenant with the following resources:<ul>
+<li>1 Essentials VM (small size)  </li>
+<li>1 Additional VM (medium size)</li>
+<li>1 Additional Azure SQL instance (small size)</li>
+<li>1 basic VPN gateway</li>
+<li>Backup of the essential and additional machines</li>
+</ul>
+</li>
+</ul>
+<pre><code class="PowerShell">$properties = @{
+    CustomerName = 'Contoso'
+    CustomerSize = 'small'
+    TenantDomain = 'Contoso.com'
+    SysAdminPassword = $securePassword
+    Credential = $myCredential
+    SubscriptionId = '3812cde5-cb5e-42de-a673-20228eed897f'
+    AdditionalVMSize = 'medium'
+    AdditionalSQLInstanceSize = 'small'
+    VPN = 'basic'
+}
+Start-SMBBlueprintDeployment @properties
+</code></pre></div>
             
         </div>
 

@@ -71,13 +71,13 @@
                         
                             
 <li >
-    <a href="office365/">Office 365</a>
+    <a href="office365-install/">Office 365</a>
 </li>
 
                         
                             
 <li >
-    <a href="azure/">Azure</a>
+    <a href="azure-install/">Azure</a>
 </li>
 
                         
@@ -87,7 +87,7 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technical overview <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -118,13 +118,19 @@
         
             
 <li >
-    <a href="azure-intro/">introduction</a>
+    <a href="azure-smb-intro/">SMB overview</a>
 </li>
 
         
             
 <li >
-    <a href="azure-arm/">Resource Manager deployment</a>
+    <a href="azure-arm-intro/">ARM introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="azure-arm-deployment/">ARM deployment</a>
 </li>
 
         
@@ -200,6 +206,8 @@
     
         <li class="main active"><a href="#welcome-to-the-smb-blueprint">Welcome to the SMB Blueprint</a></li>
         
+            <li><a href="#overview">Overview</a></li>
+        
             <li><a href="#target-audience">Target Audience</a></li>
         
             <li><a href="#additional-info">Additional info</a></li>
@@ -211,13 +219,34 @@
 
 <h1 id="welcome-to-the-smb-blueprint">Welcome to the SMB Blueprint<a class="headerlink" href="#welcome-to-the-smb-blueprint" title="Permanent link">&para;</a></h1>
 <p>The <em>SMB Blueprint</em> solution accelerator is a fast go to market solution to onboard Azure and Office 365.</p>
+<p>The Microsoft Cloud platform consists of a vast set of technologies that allow businesses to get productive very rapidly. <br />
+While the provisioning of IT resources has become a fast process, their design is still the resposibility of the business owners.<br />
+For small businesses that just want to get to work without spending budget and effort into their IT platform,<br />
+this turnkey solution has been build. This solution allows either the business owner or their hosting partners<br />
+to quickly rollout an IT environment that adheres to Microsoft's best-practices and standards.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The solution consists of 2 building blocks. A PowerShell module and a set of Azure resource manager
+templates.
+The PowerShell module allows the execution of;</p>
+<ol>
+<li>The Infrastructure in Azure consisting of 1 or more Virtual Machines and management resources</li>
+<li>The Office 365 deployment, consisting of users, groups, etc </li>
+</ol>
+<p><img alt="solution index" src="./images\index_overview.png" /></p>
+<p>Information on how to use the fast track solution can be found in the installation guide.</p>
+<p>For technical information, browse to 'Technical overview', which contains, per deployment option, the
+technical details </p>
 <h2 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h2>
 <p>The targetted Audience are the CSP (Cloud Service Provider) partners. They can benefit from this solution
 accelerator to onboard new client using a fast track.</p>
 <h2 id="additional-info">Additional info<a class="headerlink" href="#additional-info" title="Permanent link">&para;</a></h2>
 <p>The solution can be used 'as is' to onboard client into Office 365 and\or Azure. If the need exists
 the provided scripts and templates can be leveraged as a starting point or can be directly integrated
-into existing portals and offerings.</p></div>
+into existing portals and offerings.</p>
+<hr />
+<p><div style="text-align:center">
+    <img src="images\Microsoft.png" alt="Microsoft" > <img src="images\inovativ.png" alt="Inovativ" >
+</div></p></div>
             
         </div>
 
@@ -264,5 +293,5 @@ into existing portals and offerings.</p></div>
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-10-24 19:49:41.366234
+Build Date UTC : 2016-10-26 14:28:13.296200
 -->

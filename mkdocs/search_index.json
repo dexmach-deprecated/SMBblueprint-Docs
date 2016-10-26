@@ -2,13 +2,18 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to the SMB Blueprint\n\u00b6\n\n\nThe \nSMB Blueprint\n solution accelerator is a fast go to market solution to onboard Azure and Office 365.\n\n\nTarget Audience\n\u00b6\n\n\nThe targetted Audience are the CSP (Cloud Service Provider) partners. They can benefit from this solution\naccelerator to onboard new client using a fast track.\n\n\nAdditional info\n\u00b6\n\n\nThe solution can be used 'as is' to onboard client into Office 365 and\\or Azure. If the need exists\nthe provided scripts and templates can be leveraged as a starting point or can be directly integrated\ninto existing portals and offerings.",
+            "text": "Welcome to the SMB Blueprint\n\u00b6\n\n\nThe \nSMB Blueprint\n solution accelerator is a fast go to market solution to onboard Azure and Office 365.\n\n\nThe Microsoft Cloud platform consists of a vast set of technologies that allow businesses to get productive very rapidly. \n\nWhile the provisioning of IT resources has become a fast process, their design is still the resposibility of the business owners.\n\nFor small businesses that just want to get to work without spending budget and effort into their IT platform,\n\nthis turnkey solution has been build. This solution allows either the business owner or their hosting partners\n\nto quickly rollout an IT environment that adheres to Microsoft's best-practices and standards.\n\n\nOverview\n\u00b6\n\n\nThe solution consists of 2 building blocks. A PowerShell module and a set of Azure resource manager\ntemplates.\nThe PowerShell module allows the execution of;\n\n\n\n\nThe Infrastructure in Azure consisting of 1 or more Virtual Machines and management resources\n\n\nThe Office 365 deployment, consisting of users, groups, etc \n\n\n\n\n\n\nInformation on how to use the fast track solution can be found in the installation guide.\n\n\nFor technical information, browse to 'Technical overview', which contains, per deployment option, the\ntechnical details \n\n\nTarget Audience\n\u00b6\n\n\nThe targetted Audience are the CSP (Cloud Service Provider) partners. They can benefit from this solution\naccelerator to onboard new client using a fast track.\n\n\nAdditional info\n\u00b6\n\n\nThe solution can be used 'as is' to onboard client into Office 365 and\\or Azure. If the need exists\nthe provided scripts and templates can be leveraged as a starting point or can be directly integrated\ninto existing portals and offerings.",
             "title": "Introduction"
         },
         {
             "location": "/#welcome-to-the-smb-blueprint",
-            "text": "The  SMB Blueprint  solution accelerator is a fast go to market solution to onboard Azure and Office 365.",
+            "text": "The  SMB Blueprint  solution accelerator is a fast go to market solution to onboard Azure and Office 365.  The Microsoft Cloud platform consists of a vast set of technologies that allow businesses to get productive very rapidly.  \nWhile the provisioning of IT resources has become a fast process, their design is still the resposibility of the business owners. \nFor small businesses that just want to get to work without spending budget and effort into their IT platform, \nthis turnkey solution has been build. This solution allows either the business owner or their hosting partners \nto quickly rollout an IT environment that adheres to Microsoft's best-practices and standards.",
             "title": "Welcome to the SMB Blueprint"
+        },
+        {
+            "location": "/#overview",
+            "text": "The solution consists of 2 building blocks. A PowerShell module and a set of Azure resource manager\ntemplates.\nThe PowerShell module allows the execution of;   The Infrastructure in Azure consisting of 1 or more Virtual Machines and management resources  The Office 365 deployment, consisting of users, groups, etc     Information on how to use the fast track solution can be found in the installation guide.  For technical information, browse to 'Technical overview', which contains, per deployment option, the\ntechnical details",
+            "title": "Overview"
         },
         {
             "location": "/#target-audience",
@@ -61,44 +66,29 @@
             "title": "Next Steps"
         },
         {
-            "location": "/office365/",
+            "location": "/office365-install/",
             "text": "",
             "title": "Office 365"
         },
         {
-            "location": "/azure/",
-            "text": "Azure deployment\n\u00b6\n\n\n SMB Blueprint \n also provides possibilities to deploy a set of azure resources.\nThe Azure resources deployed are categorized as 'small', 'medium' and 'large'.\n3 denominators targeted at  SMB clients of different sizes and needs.\n\n\nSMB categorization\n\u00b6\n\n\nsmall\n\u00b6\n\n\nmedium\n\u00b6\n\n\nlarge\n\u00b6\n\n\nAdditional services\n\u00b6\n\n\n\u00b6",
+            "location": "/azure-install/",
+            "text": "Azure deployment\n\u00b6\n\n\nNow that you have the solution available on your computer, you can launch an azure deployment using an\nGraphical user interface or using bare powershell commandlets.\n\nBoth are discussed below;\n\n\nFor an overview of the resources deployed and their dependencies you can consult the \n\ntechnical documentation\n\n\nGraphical User interface\n\u00b6\n\n\nThe graphical user interface is contained in the PowerShell module you install in the previous steps.\nto launch the SMBblueprint GUI;\n\n\n\n\nClick the start button, type PowerShell and hit enter  \n\n\nIn the PowerShell prompt load the module\n\n\n\n\nImport-Module -Name SMBBlueprint\n\n\n\n\n\n\nTo start the Graphical user interface\n\n\n\n\nStart-SMBDeploymentGUI\n\n\n\n\n\n\nProvide your CSP credentials and click \nConnect\n and selec the tenant you want to manage from the dropdown  \n\n\n\n\n\n\n\n\nSelect the Azure tab in the taks pane on the left\n\n\nProvide the deployment characteristics\n\n\nSelect the correct subscription (in larger environments multiple subscriptions can exist)\n\n\nChoose a deployment category (for an overview of the different resources per category consult\n the \noverview\n)\n\n\nSelect any additional services needed\n\n\nan additional VM size\n\n\nan extra Azure SQL database\n\n\nBackup services (note; if selected all vm's deployed will be automatically protected)\n\n\nA VPN gateway (although you will still need to setup the connection)\n\n\n\n\n\n\nthe customer name or abbriviation. (this will be used as a prefix for all resource deployments \nand the domainname)  \n\n\n\n\n\n\n\n\n\n\n\n\nHit the \nDeploy Solution\n button\n\n\nThe deployment progress can be seen in the powershell prompt with the progress indicators\n\n\nIn addition, all actions are logged in a log file specific for this deployment. The logfile can be\n consulted by clicking \nLog\n in the left task pane  \n\n\n\n\n\n\nPowerShell\n\u00b6\n\n\nAs this is a PowerShell module you can offcourse kick off a deployment using pure PowerShell.\nTo start a deployment follow the steps below;\n\n\n\n\nClick the start button, type PowerShell and hit enter  \n\n\nIn the PowerShell prompt load the module\n\n\n\n\nImport-Module -Name SMBBlueprint\n\n\n\n\n\n\nExecute the PowerShell code below to start a deployment with specified parameters.\n\nThis example will deploy a small SMB scenario to the Contoso.com CSP tenant with the following resources:\n\n\n1 Essentials VM (small size)  \n\n\n1 Additional VM (medium size)\n\n\n1 Additional Azure SQL instance (small size)\n\n\n1 basic VPN gateway\n\n\nBackup of the essential and additional machines\n\n\n\n\n\n\n\n\n$properties = @{\n    CustomerName = 'Contoso'\n    CustomerSize = 'small'\n    TenantDomain = 'Contoso.com'\n    SysAdminPassword = $securePassword\n    Credential = $myCredential\n    SubscriptionId = '3812cde5-cb5e-42de-a673-20228eed897f'\n    AdditionalVMSize = 'medium'\n    AdditionalSQLInstanceSize = 'small'\n    VPN = 'basic'\n}\nStart-SMBBlueprintDeployment @properties",
             "title": "Azure"
         },
         {
-            "location": "/azure/#azure-deployment",
-            "text": "SMB Blueprint   also provides possibilities to deploy a set of azure resources.\nThe Azure resources deployed are categorized as 'small', 'medium' and 'large'.\n3 denominators targeted at  SMB clients of different sizes and needs.",
+            "location": "/azure-install/#azure-deployment",
+            "text": "Now that you have the solution available on your computer, you can launch an azure deployment using an\nGraphical user interface or using bare powershell commandlets. \nBoth are discussed below;  For an overview of the resources deployed and their dependencies you can consult the  technical documentation",
             "title": "Azure deployment"
         },
         {
-            "location": "/azure/#smb-categorization",
-            "text": "",
-            "title": "SMB categorization"
+            "location": "/azure-install/#graphical-user-interface",
+            "text": "The graphical user interface is contained in the PowerShell module you install in the previous steps.\nto launch the SMBblueprint GUI;   Click the start button, type PowerShell and hit enter    In the PowerShell prompt load the module   Import-Module -Name SMBBlueprint   To start the Graphical user interface   Start-SMBDeploymentGUI   Provide your CSP credentials and click  Connect  and selec the tenant you want to manage from the dropdown       Select the Azure tab in the taks pane on the left  Provide the deployment characteristics  Select the correct subscription (in larger environments multiple subscriptions can exist)  Choose a deployment category (for an overview of the different resources per category consult\n the  overview )  Select any additional services needed  an additional VM size  an extra Azure SQL database  Backup services (note; if selected all vm's deployed will be automatically protected)  A VPN gateway (although you will still need to setup the connection)    the customer name or abbriviation. (this will be used as a prefix for all resource deployments \nand the domainname)         Hit the  Deploy Solution  button  The deployment progress can be seen in the powershell prompt with the progress indicators  In addition, all actions are logged in a log file specific for this deployment. The logfile can be\n consulted by clicking  Log  in the left task pane",
+            "title": "Graphical User interface"
         },
         {
-            "location": "/azure/#small",
-            "text": "",
-            "title": "small"
-        },
-        {
-            "location": "/azure/#medium",
-            "text": "",
-            "title": "medium"
-        },
-        {
-            "location": "/azure/#large",
-            "text": "",
-            "title": "large"
-        },
-        {
-            "location": "/azure/#additional-services",
-            "text": "",
-            "title": "Additional services"
+            "location": "/azure-install/#powershell",
+            "text": "As this is a PowerShell module you can offcourse kick off a deployment using pure PowerShell.\nTo start a deployment follow the steps below;   Click the start button, type PowerShell and hit enter    In the PowerShell prompt load the module   Import-Module -Name SMBBlueprint   Execute the PowerShell code below to start a deployment with specified parameters. \nThis example will deploy a small SMB scenario to the Contoso.com CSP tenant with the following resources:  1 Essentials VM (small size)    1 Additional VM (medium size)  1 Additional Azure SQL instance (small size)  1 basic VPN gateway  Backup of the essential and additional machines     $properties = @{\n    CustomerName = 'Contoso'\n    CustomerSize = 'small'\n    TenantDomain = 'Contoso.com'\n    SysAdminPassword = $securePassword\n    Credential = $myCredential\n    SubscriptionId = '3812cde5-cb5e-42de-a673-20228eed897f'\n    AdditionalVMSize = 'medium'\n    AdditionalSQLInstanceSize = 'small'\n    VPN = 'basic'\n}\nStart-SMBBlueprintDeployment @properties",
+            "title": "PowerShell"
         },
         {
             "location": "/powershell-office365/",
@@ -116,182 +106,217 @@
             "title": "Azure"
         },
         {
-            "location": "/azure-intro/",
-            "text": "Azure Resource Manager\n\u00b6\n\n\nThe infrastructure for your application is typically made up of many components \u2013 maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.\n\n\nTerminology\n\u00b6\n\n\nIf you are new to Azure Resource Manager, there are some terms you might not be familiar with.\n\n\n\n\nresource\n - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.\n\n\nresource group\n - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.\n\n\nresource provider\n - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute, which supplies the virtual machine resource, Microsoft.Storage, which supplies the storage account resource, and Microsoft.Web, which supplies resources related to web apps. See Resource providers.\n\n\nResource Manager template\n - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See Template deployment.\n\n\ndeclarative syntax\n - Syntax that lets you state \"Here is what I intend to create\" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.\n\n\n\n\nThe benefits of using Resource Manager\n\u00b6\n\n\nResource Manager provides several benefits:\n\n\n\n\nYou can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.\n\n\nYou can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.\n\n\nYou can manage your infrastructure through declarative templates rather than scripts.\n\n\nYou can define the dependencies between resources so they are deployed in the correct order.\n\n\nYou can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.\n\n\nYou can apply tags to resources to logically organize all the resources in your subscription.\n\n\nYou can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.\n\n\n\n\nTemplate deployment\n\u00b6\n\n\nWith Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.\n\n\nIn its simplest form, a template contains the following elements:\n\n\nCopy\n{\n  \"$schema\": \"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"\",\n  \"parameters\": {  },\n  \"variables\": {  },\n  \"resources\": [  ],\n  \"outputs\": {  }\n}\n\n\n\n\nIn the \nparameters element\n, you specify values that enable customization and flexibility in deployment.\n For example, you can pass parameter values that tailor deployment for your test environment. \n By specifying the parameters, you can use the same template to deploy your solution to different environments.\n\n\nIn the \nvariables element\n, you specify values that are reused throughout the template, or values\n that are constructed from other values (like parameters).\n\n\nIn the \nresources element\n, you specify the components of your infrastructure. \nYou define as many resources as your solution needs.\n\n\nIn the \noutputs element\n, you specify any values that are returned from the deployment \n(such as URIs from deployed resources).\n\n\nAzure Resource Manager analyzes dependencies to ensure resources are created in the correct order. \nIf one resource relies on a value from another resource (such as a virtual machine needing a storage \naccount for disks), you set a dependency.\n\n\nYou do not have to define your entire infrastructure in a single template. Often, it makes sense to \ndivide your deployment requirements into a set of targeted, purpose-specific templates. \nYou can easily reuse these templates for different solutions. To deploy a particular solution, \nyou create a master template that links all the required templates.\n\n\nYou can also use the template for updates to the infrastructure. For example, you can add a resource\n to your solution and add configuration rules for the resources that are already deployed. \n If the template specifies creating a resource but that resource already exists, \n Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager \n updates the existing asset to the same state as it would be as new.\n\n\nPractical Examples\n\u00b6",
-            "title": "introduction"
+            "location": "/azure-smb-intro/",
+            "text": "Azure deployment\n\u00b6\n\n\n SMB Blueprint \n also provides possibilities to deploy a set of azure resources.\n\nThe Azure resources deployed are categorized as 'small', 'medium' and 'large'.\n\n3 denominators targeted at  SMB clients of different sizes and needs.\n\n\nSMB categorization\n\u00b6\n\n\nThe different deployments have been categorized by the number of users\\employees to determine a size \nof deployment.\n\nThe deployment serves as a starting point and is by no means limited to the set of \nresources deployed by the SMB blueprint solution\nbelow you can find an overview of the different sizes.\n\n\ntable: categorization\n\n\n\n\n\n\n\n\nSize\n\n\n# users\n\n\n\n\n\n\n\n\n\n\nSmall\n\n\n< 10 users\n\n\n\n\n\n\nMedium\n\n\n\n\n\n\n\n\nLarge\n\n\n\n\n\n\n\n\n\n\nIn de following topics we will elaborate on the resources deployed per category.\n\nBut independend of the categorization a standard set of resources are deployed.\n\n\nFor example; a virtual machine always needs a storage account and a network card\nThe following resources will be deployed regardless of the type of deployment.\n\n\ntable: General resources\n\n\n\n\n\n\n\n\nResource type\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n VNET \n\n\nThe virtual network. The virtual network has a fixed ip range set to 10.3.0.0/16.\n\n\n\n\n\n\n NSG \n\n\nNetwork security groups (ACL) to protect the different subnets in the virtual network\n\n\n\n\n\n\nNetwork Card \n\n\nPer virtual machine a network card is deployed to enable communication\n\n\n\n\n\n\n public IP \n\n\na public ip address is created and assigned to each network card. A public ip enables external communications\n\n\n\n\n\n\n storage account \n\n\na storage account per VM. the storage account will hold the vhd file(s) that hold the OS and possible extra data disks\n\n\n\n\n\n\n\n\nsmall\n\u00b6\n\n\nIn a small scenario\n\n\nmedium\n\u00b6\n\n\nlarge\n\u00b6\n\n\nAdditional services\n\u00b6\n\n\n\u00b6",
+            "title": "SMB overview"
         },
         {
-            "location": "/azure-intro/#azure-resource-manager",
-            "text": "The infrastructure for your application is typically made up of many components \u2013 maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.",
-            "title": "Azure Resource Manager"
+            "location": "/azure-smb-intro/#azure-deployment",
+            "text": "SMB Blueprint   also provides possibilities to deploy a set of azure resources. \nThe Azure resources deployed are categorized as 'small', 'medium' and 'large'. \n3 denominators targeted at  SMB clients of different sizes and needs.",
+            "title": "Azure deployment"
         },
         {
-            "location": "/azure-intro/#terminology",
-            "text": "If you are new to Azure Resource Manager, there are some terms you might not be familiar with.   resource  - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.  resource group  - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.  resource provider  - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute, which supplies the virtual machine resource, Microsoft.Storage, which supplies the storage account resource, and Microsoft.Web, which supplies resources related to web apps. See Resource providers.  Resource Manager template  - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See Template deployment.  declarative syntax  - Syntax that lets you state \"Here is what I intend to create\" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.",
-            "title": "Terminology"
+            "location": "/azure-smb-intro/#smb-categorization",
+            "text": "The different deployments have been categorized by the number of users\\employees to determine a size \nof deployment. \nThe deployment serves as a starting point and is by no means limited to the set of \nresources deployed by the SMB blueprint solution\nbelow you can find an overview of the different sizes.  table: categorization     Size  # users      Small  < 10 users    Medium     Large      In de following topics we will elaborate on the resources deployed per category. \nBut independend of the categorization a standard set of resources are deployed.  For example; a virtual machine always needs a storage account and a network card\nThe following resources will be deployed regardless of the type of deployment.  table: General resources     Resource type  Description       VNET   The virtual network. The virtual network has a fixed ip range set to 10.3.0.0/16.     NSG   Network security groups (ACL) to protect the different subnets in the virtual network    Network Card   Per virtual machine a network card is deployed to enable communication     public IP   a public ip address is created and assigned to each network card. A public ip enables external communications     storage account   a storage account per VM. the storage account will hold the vhd file(s) that hold the OS and possible extra data disks",
+            "title": "SMB categorization"
         },
         {
-            "location": "/azure-intro/#the-benefits-of-using-resource-manager",
-            "text": "Resource Manager provides several benefits:   You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.  You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  You can manage your infrastructure through declarative templates rather than scripts.  You can define the dependencies between resources so they are deployed in the correct order.  You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.  You can apply tags to resources to logically organize all the resources in your subscription.  You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.",
-            "title": "The benefits of using Resource Manager"
+            "location": "/azure-smb-intro/#small",
+            "text": "In a small scenario",
+            "title": "small"
         },
         {
-            "location": "/azure-intro/#template-deployment",
-            "text": "With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.  In its simplest form, a template contains the following elements:  Copy\n{\n  \"$schema\": \"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"\",\n  \"parameters\": {  },\n  \"variables\": {  },\n  \"resources\": [  ],\n  \"outputs\": {  }\n}  In the  parameters element , you specify values that enable customization and flexibility in deployment.\n For example, you can pass parameter values that tailor deployment for your test environment. \n By specifying the parameters, you can use the same template to deploy your solution to different environments.  In the  variables element , you specify values that are reused throughout the template, or values\n that are constructed from other values (like parameters).  In the  resources element , you specify the components of your infrastructure. \nYou define as many resources as your solution needs.  In the  outputs element , you specify any values that are returned from the deployment \n(such as URIs from deployed resources).  Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. \nIf one resource relies on a value from another resource (such as a virtual machine needing a storage \naccount for disks), you set a dependency.  You do not have to define your entire infrastructure in a single template. Often, it makes sense to \ndivide your deployment requirements into a set of targeted, purpose-specific templates. \nYou can easily reuse these templates for different solutions. To deploy a particular solution, \nyou create a master template that links all the required templates.  You can also use the template for updates to the infrastructure. For example, you can add a resource\n to your solution and add configuration rules for the resources that are already deployed. \n If the template specifies creating a resource but that resource already exists, \n Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager \n updates the existing asset to the same state as it would be as new.",
-            "title": "Template deployment"
-        },
-        {
-            "location": "/azure-intro/#practical-examples",
+            "location": "/azure-smb-intro/#medium",
             "text": "",
-            "title": "Practical Examples"
+            "title": "medium"
         },
         {
-            "location": "/azure-arm/",
-            "text": "Overview\n\u00b6\n\n\nThe solution we deploy consists of several components.\n\n\n\n\nA virtual network\n\n\nVirtual machines, storage, etc\n\n\nOperations Management Suite (Free)\n\n\noptional recovery services (backup)\n\n\noptional additional Virtual machines\n\n\noptional Azure SQL\n\n\n\n\n\n\nBelow you can find the detail per resource we deploy\n\n\n Azure deploy\n\u00b6\n\n\nThe azuredeploy.json is the entry point of the azure deployment. It really serves as the orchestration \nfile to call out to other deployments or resources.\n\nSingle instance resources will be deployed if defined as optional.\n\n\nIn the following topics we will elaborate on the different deployments or resources.\nWith a limited set of parameters we are able to rollout a full infrastructure.\nGiven the options we could identify 3 distinct deployment models\n\n\n\n\nSmall\n\n\nMedium\n\n\nLarge\n\n\n\n\nLet's dive into the different models\n\n\nSmall\n\u00b6\n\n\nThe small deployment comes down to the deployment of 1 virtual machine.\n\n\nan overview of the resources deployed\n\n\n\n\nThe following resources are deployed:\n\n\n\n\nNetwork\n\n\na virtual network with different subnets to support future growth\n\n\nnetwork security groups bound to the subnets to provide security\n\n\n\n\n\n\nInfrastructure\n\n\na storage account to host the disks for our virtual machine\n\n\na virtual machine of type DS2_V2\n\n\na network card to provide network connectivity\n\n\n\n\n\n\nOperations Management Suite\n\n\nOMS Workspace\n\n\nAzure Automation account\n\n\n\n\n\n\n\n\nIn addition the following resources can optionally be deployed:\n\n\n\n\nbackup services\n\n\na gateway to support onprem connectivity\n\n\nan Azure SQL server and database\n\n\nan additional Virtual machine\n\n\nstorage account\n\n\nvirtual machine\n\n\nnetwork card\n\n\n\n\n\n\n\n\nMedium\n\u00b6\n\n\nThe medium deployment does not differ from the small deployment except from the virtual machine sizing.\n\n\nInstead of a DS2_V2 a DS3_V2 is used instead for better performance\n\n\nan overview of the resources deployed\n\n\n\n\nFor more information see \nSmall deployment\n\n\nLarge\n\u00b6\n\n\nThe small deployment comes down to the deployment of 1 virtual machine.\n\n\nan overview of the resources deployed\n\n\n\n\nThe following resources are deployed:\n\n\n\n\nNetwork\n\n\na virtual network with different subnets to support future growth\n\n\nnetwork security groups bound to the subnets to provide security\n\n\n\n\n\n\nInfrastructure\n\n\na storage account to host the disks for our virtual machine\n\n\na virtual machine of type DS2_V2\n\n\na network card to provide network connectivity\n\n\n\n\n\n\nOperations Management Suite\n\n\nOMS Workspace\n\n\nAzure Automation account\n\n\n\n\n\n\n\n\nIn addition the following resources can optionally be deployed:\n\n\n\n\nbackup services\n\n\na gateway to support onprem connectivity\n\n\nan Azure SQL server and database\n\n\nan additional Virtual machine\n\n\nstorage account\n\n\nvirtual machine\n\n\nnetwork card\n\n\n\n\n\n\n\n\n Network deployment\n\u00b6\n\n\nFrom within the \nazuredeploy.json\n the network resources are deployed using a \ngeneric\n deployment resource.\nThe deployment resource references an ARM template (public available) containing the network resources.\n\n\nAs the picture below visualizes, the network ARM template contains several resources;\n\n\n\n\nthe virtual network\n\n\nthe network security groups\n\n\n\n\nfigure: Network deployment overview\n\nNetwork deployment overview\n\n\nVirtual network\n\u00b6\n\n\nThe ip range for the virtual network is captured in a variable and will be the same for every deployment.\nThe table below provides an overview of the ip ranges per subnet.\nBy default the management and gateway subnet are deployed, other subnets are deployed depending on the size of customer.\n\n\ntable: subnet overview\n\n\n\n\n\n\n\n\nSubnet\n\n\nSubnet name\n\n\nIP range\n\n\n\n\n\n\n\n\n\n\nmanagement\n\n\nsn-managementServices\n\n\n10.3.1.0/24\n\n\n\n\n\n\ngateway\n\n\nGatewaySubnet\n\n\n10.3.5.0/24\n\n\n\n\n\n\nDMZ *\n\n\nsn-dmzServices\n\n\n10.3.2.0/24\n\n\n\n\n\n\nEmergency *\n\n\nsn-emergencyServices\n\n\n10.3.4.0/24\n\n\n\n\n\n\n\n\n*depends on the customer size choosen during deployment\n\n\nNetwork security groups\n\u00b6\n\n\n\nNetwork security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny \nnetwork traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets \nor individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules \napply to all the VM instances in that subnet. In addition, traffic to an individual VM can be \nrestricted further by associating a NSG directly to that VM.\n\n\nLet's have a look at the different network security groups used in the solution.\n\n\nmanagement NSG\n\u00b6\n\n\nThe management network security group is deployed and linked to the corresponsong sn-managementServices\nsubnet as part of the virtual network.\nThe managementServices subnet hosts all 'management' services like for example domain controllers,\nfile servers, etc.\n\n\n\n\nDepending on customer size, different rules are deployed.\n\n\n\n\nsmall and medium\n\u00b6\n\n\ntable: small and medium size rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow  *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n3\n\n\nemergency-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n4\n\n\nemergency-pshttps-in-allow  *\n\n\ntcp\n\n\n10.\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nlarge\n\u00b6\n\n\ntable: large size rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow  *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n3\n\n\nemergency-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n4\n\n\nemergency-pshttps-in-allow  *\n\n\ntcp\n\n\n10.\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nDMZ NSG (large)\n\u00b6\n\n\nThe DMZ network security group is deployed and linked to the corresponsong sn-dmzServices\nsubnet as part of the virtual network.\nThe dmz services network security group contains the following rules:\n\n\ntable: large size rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow  *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n3\n\n\nemergency-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n4\n\n\nemergency-pshttps-in-allow  *\n\n\ntcp\n\n\n10.\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nEmergency NSG (large)\n\u00b6\n\n\nThe emergency network security group is deployed and linked to the corresponsong sn-EmergencyServices\nsubnet as part of the virtual network.\nThe emergency services network security group contains the following rules:\n\n\ntable: rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nFiles\n\u00b6\n\n\nFiles used in the deployment (depending on provided selection): \n\n\ntable: network templates overview\n\n\n\n\n\n\n\n\n#\n\n\nFilename\n\n\n\n\n\n\n\n\n\n\n1\n\n\nnetwork-small.json\n\n\n\n\n\n\n2\n\n\nnetwork-medium.json\n\n\n\n\n\n\n3\n\n\nnetwork-large.json\n\n\n\n\n\n\n\n\noptional parameter files are provided as well:\n\n\ntable: parameter files\n\n\n\n\n\n\n\n\n#\n\n\nFilename\n\n\n\n\n\n\n\n\n\n\n1\n\n\nnetwork-small.parameters.json\n\n\n\n\n\n\n2\n\n\nnetwork-medium.parameters.json\n\n\n\n\n\n\n3\n\n\nnetwork-large.parameters.json\n\n\n\n\n\n\n\n\nInfrastructure deployment\n\u00b6\n\n\nOMS Workspace deployment\n\u00b6\n\n\nSolutions\n\u00b6\n\n\nSoftware updates\n\u00b6\n\n\n\n\nSecurity and Compliance\n\u00b6\n\n\nPrevent, detect, and respond to threats with increased visibility. \n\n\nTake control of cloud security by defining policies that recommend and monitor security configurations. \nLeverage Microsoft security data and analysis to perform more intelligent and effective threat detection.\n\n\n\nChange tracking\n\u00b6\n\n\n\n\nAgent Heatlh\n\u00b6\n\n\n\n\nSaved searches\n\u00b6\n\n\nSaved searches help in identifying potential issues.\n\n\nquery 1\n\u00b6\n\n\nOMS Azure Automation deployment\n\u00b6\n\n\nAdditional services\n\u00b6\n\n\nAdditional VM\n\u00b6\n\n\nVPN gateway\n\u00b6\n\n\nAzure SQL database\n\u00b6\n\n\nSmall\n\u00b6",
-            "title": "Resource Manager deployment"
-        },
-        {
-            "location": "/azure-arm/#overview",
-            "text": "The solution we deploy consists of several components.   A virtual network  Virtual machines, storage, etc  Operations Management Suite (Free)  optional recovery services (backup)  optional additional Virtual machines  optional Azure SQL    Below you can find the detail per resource we deploy",
-            "title": "Overview"
-        },
-        {
-            "location": "/azure-arm/#azure-deploy",
-            "text": "The azuredeploy.json is the entry point of the azure deployment. It really serves as the orchestration \nfile to call out to other deployments or resources. \nSingle instance resources will be deployed if defined as optional. \nIn the following topics we will elaborate on the different deployments or resources.\nWith a limited set of parameters we are able to rollout a full infrastructure.\nGiven the options we could identify 3 distinct deployment models   Small  Medium  Large   Let's dive into the different models",
-            "title": "Azure deploy"
-        },
-        {
-            "location": "/azure-arm/#small",
-            "text": "The small deployment comes down to the deployment of 1 virtual machine.  an overview of the resources deployed   The following resources are deployed:   Network  a virtual network with different subnets to support future growth  network security groups bound to the subnets to provide security    Infrastructure  a storage account to host the disks for our virtual machine  a virtual machine of type DS2_V2  a network card to provide network connectivity    Operations Management Suite  OMS Workspace  Azure Automation account     In addition the following resources can optionally be deployed:   backup services  a gateway to support onprem connectivity  an Azure SQL server and database  an additional Virtual machine  storage account  virtual machine  network card",
-            "title": "Small"
-        },
-        {
-            "location": "/azure-arm/#medium",
-            "text": "The medium deployment does not differ from the small deployment except from the virtual machine sizing.  Instead of a DS2_V2 a DS3_V2 is used instead for better performance  an overview of the resources deployed   For more information see  Small deployment",
-            "title": "Medium"
-        },
-        {
-            "location": "/azure-arm/#large",
-            "text": "The small deployment comes down to the deployment of 1 virtual machine.  an overview of the resources deployed   The following resources are deployed:   Network  a virtual network with different subnets to support future growth  network security groups bound to the subnets to provide security    Infrastructure  a storage account to host the disks for our virtual machine  a virtual machine of type DS2_V2  a network card to provide network connectivity    Operations Management Suite  OMS Workspace  Azure Automation account     In addition the following resources can optionally be deployed:   backup services  a gateway to support onprem connectivity  an Azure SQL server and database  an additional Virtual machine  storage account  virtual machine  network card",
-            "title": "Large"
-        },
-        {
-            "location": "/azure-arm/#network-deployment",
-            "text": "From within the  azuredeploy.json  the network resources are deployed using a  generic  deployment resource.\nThe deployment resource references an ARM template (public available) containing the network resources.  As the picture below visualizes, the network ARM template contains several resources;   the virtual network  the network security groups   figure: Network deployment overview \nNetwork deployment overview",
-            "title": "Network deployment"
-        },
-        {
-            "location": "/azure-arm/#virtual-network",
-            "text": "The ip range for the virtual network is captured in a variable and will be the same for every deployment.\nThe table below provides an overview of the ip ranges per subnet.\nBy default the management and gateway subnet are deployed, other subnets are deployed depending on the size of customer.  table: subnet overview     Subnet  Subnet name  IP range      management  sn-managementServices  10.3.1.0/24    gateway  GatewaySubnet  10.3.5.0/24    DMZ *  sn-dmzServices  10.3.2.0/24    Emergency *  sn-emergencyServices  10.3.4.0/24     *depends on the customer size choosen during deployment",
-            "title": "Virtual network"
-        },
-        {
-            "location": "/azure-arm/#network-security-groups",
-            "text": "Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny \nnetwork traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets \nor individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules \napply to all the VM instances in that subnet. In addition, traffic to an individual VM can be \nrestricted further by associating a NSG directly to that VM.  Let's have a look at the different network security groups used in the solution.",
-            "title": "Network security groups"
-        },
-        {
-            "location": "/azure-arm/#management-nsg",
-            "text": "The management network security group is deployed and linked to the corresponsong sn-managementServices\nsubnet as part of the virtual network.\nThe managementServices subnet hosts all 'management' services like for example domain controllers,\nfile servers, etc.   Depending on customer size, different rules are deployed.",
-            "title": "management NSG"
-        },
-        {
-            "location": "/azure-arm/#small-and-medium",
-            "text": "table: small and medium size rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  *  tcp  internet  *  *  5986  allow  inbound    3  emergency-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    4  emergency-pshttps-in-allow  *  tcp  10.  *  *  5986  allow  inbound",
-            "title": "small and medium"
-        },
-        {
-            "location": "/azure-arm/#large_1",
-            "text": "table: large size rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  *  tcp  internet  *  *  5986  allow  inbound    3  emergency-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    4  emergency-pshttps-in-allow  *  tcp  10.  *  *  5986  allow  inbound",
+            "location": "/azure-smb-intro/#large",
+            "text": "",
             "title": "large"
         },
         {
-            "location": "/azure-arm/#dmz-nsg-large",
-            "text": "The DMZ network security group is deployed and linked to the corresponsong sn-dmzServices\nsubnet as part of the virtual network.\nThe dmz services network security group contains the following rules:  table: large size rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  *  tcp  internet  *  *  5986  allow  inbound    3  emergency-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    4  emergency-pshttps-in-allow  *  tcp  10.  *  *  5986  allow  inbound",
-            "title": "DMZ NSG (large)"
-        },
-        {
-            "location": "/azure-arm/#emergency-nsg-large",
-            "text": "The emergency network security group is deployed and linked to the corresponsong sn-EmergencyServices\nsubnet as part of the virtual network.\nThe emergency services network security group contains the following rules:  table: rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  tcp  internet  *  *  5986  allow  inbound",
-            "title": "Emergency NSG (large)"
-        },
-        {
-            "location": "/azure-arm/#files",
-            "text": "Files used in the deployment (depending on provided selection):   table: network templates overview     #  Filename      1  network-small.json    2  network-medium.json    3  network-large.json     optional parameter files are provided as well:  table: parameter files     #  Filename      1  network-small.parameters.json    2  network-medium.parameters.json    3  network-large.parameters.json",
-            "title": "Files"
-        },
-        {
-            "location": "/azure-arm/#infrastructure-deployment",
-            "text": "",
-            "title": "Infrastructure deployment"
-        },
-        {
-            "location": "/azure-arm/#oms-workspace-deployment",
-            "text": "",
-            "title": "OMS Workspace deployment"
-        },
-        {
-            "location": "/azure-arm/#solutions",
-            "text": "",
-            "title": "Solutions"
-        },
-        {
-            "location": "/azure-arm/#software-updates",
-            "text": "",
-            "title": "Software updates"
-        },
-        {
-            "location": "/azure-arm/#security-and-compliance",
-            "text": "Prevent, detect, and respond to threats with increased visibility.   Take control of cloud security by defining policies that recommend and monitor security configurations. \nLeverage Microsoft security data and analysis to perform more intelligent and effective threat detection.",
-            "title": "Security and Compliance"
-        },
-        {
-            "location": "/azure-arm/#change-tracking",
-            "text": "",
-            "title": "Change tracking"
-        },
-        {
-            "location": "/azure-arm/#agent-heatlh",
-            "text": "",
-            "title": "Agent Heatlh"
-        },
-        {
-            "location": "/azure-arm/#saved-searches",
-            "text": "Saved searches help in identifying potential issues.",
-            "title": "Saved searches"
-        },
-        {
-            "location": "/azure-arm/#query-1",
-            "text": "",
-            "title": "query 1"
-        },
-        {
-            "location": "/azure-arm/#oms-azure-automation-deployment",
-            "text": "",
-            "title": "OMS Azure Automation deployment"
-        },
-        {
-            "location": "/azure-arm/#additional-services",
+            "location": "/azure-smb-intro/#additional-services",
             "text": "",
             "title": "Additional services"
         },
         {
-            "location": "/azure-arm/#additional-vm",
+            "location": "/azure-arm-intro/",
+            "text": "Azure Resource Manager\n\u00b6\n\n\nThe infrastructure for your application is typically made up of many components \u2013 maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.\n\n\nTerminology\n\u00b6\n\n\nIf you are new to Azure Resource Manager, there are some terms you might not be familiar with.\n\n\n\n\nresource\n - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.\n\n\nresource group\n - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.\n\n\nresource provider\n - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute, which supplies the virtual machine resource, Microsoft.Storage, which supplies the storage account resource, and Microsoft.Web, which supplies resources related to web apps. See Resource providers.\n\n\nResource Manager template\n - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See Template deployment.\n\n\ndeclarative syntax\n - Syntax that lets you state \"Here is what I intend to create\" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.\n\n\n\n\nThe benefits of using Resource Manager\n\u00b6\n\n\nResource Manager provides several benefits:\n\n\n\n\nYou can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.\n\n\nYou can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.\n\n\nYou can manage your infrastructure through declarative templates rather than scripts.\n\n\nYou can define the dependencies between resources so they are deployed in the correct order.\n\n\nYou can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.\n\n\nYou can apply tags to resources to logically organize all the resources in your subscription.\n\n\nYou can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.\n\n\n\n\nTemplate deployment\n\u00b6\n\n\nWith Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.\n\n\nIn its simplest form, a template contains the following elements:\n\n\nCopy\n{\n  \"$schema\": \"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"\",\n  \"parameters\": {  },\n  \"variables\": {  },\n  \"resources\": [  ],\n  \"outputs\": {  }\n}\n\n\n\n\nIn the \nparameters element\n, you specify values that enable customization and flexibility in deployment.\n For example, you can pass parameter values that tailor deployment for your test environment. \n By specifying the parameters, you can use the same template to deploy your solution to different environments.\n\n\nIn the \nvariables element\n, you specify values that are reused throughout the template, or values\n that are constructed from other values (like parameters).\n\n\nIn the \nresources element\n, you specify the components of your infrastructure. \nYou define as many resources as your solution needs.\n\n\nIn the \noutputs element\n, you specify any values that are returned from the deployment \n(such as URIs from deployed resources).\n\n\nAzure Resource Manager analyzes dependencies to ensure resources are created in the correct order. \nIf one resource relies on a value from another resource (such as a virtual machine needing a storage \naccount for disks), you set a dependency.\n\n\nYou do not have to define your entire infrastructure in a single template. Often, it makes sense to \ndivide your deployment requirements into a set of targeted, purpose-specific templates. \nYou can easily reuse these templates for different solutions. To deploy a particular solution, \nyou create a master template that links all the required templates.\n\n\nYou can also use the template for updates to the infrastructure. For example, you can add a resource\n to your solution and add configuration rules for the resources that are already deployed. \n If the template specifies creating a resource but that resource already exists, \n Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager \n updates the existing asset to the same state as it would be as new.\n\n\nPractical Examples\n\u00b6",
+            "title": "ARM introduction"
+        },
+        {
+            "location": "/azure-arm-intro/#azure-resource-manager",
+            "text": "The infrastructure for your application is typically made up of many components \u2013 maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.",
+            "title": "Azure Resource Manager"
+        },
+        {
+            "location": "/azure-arm-intro/#terminology",
+            "text": "If you are new to Azure Resource Manager, there are some terms you might not be familiar with.   resource  - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.  resource group  - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.  resource provider  - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute, which supplies the virtual machine resource, Microsoft.Storage, which supplies the storage account resource, and Microsoft.Web, which supplies resources related to web apps. See Resource providers.  Resource Manager template  - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See Template deployment.  declarative syntax  - Syntax that lets you state \"Here is what I intend to create\" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.",
+            "title": "Terminology"
+        },
+        {
+            "location": "/azure-arm-intro/#the-benefits-of-using-resource-manager",
+            "text": "Resource Manager provides several benefits:   You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.  You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  You can manage your infrastructure through declarative templates rather than scripts.  You can define the dependencies between resources so they are deployed in the correct order.  You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.  You can apply tags to resources to logically organize all the resources in your subscription.  You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.",
+            "title": "The benefits of using Resource Manager"
+        },
+        {
+            "location": "/azure-arm-intro/#template-deployment",
+            "text": "With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.  In its simplest form, a template contains the following elements:  Copy\n{\n  \"$schema\": \"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"\",\n  \"parameters\": {  },\n  \"variables\": {  },\n  \"resources\": [  ],\n  \"outputs\": {  }\n}  In the  parameters element , you specify values that enable customization and flexibility in deployment.\n For example, you can pass parameter values that tailor deployment for your test environment. \n By specifying the parameters, you can use the same template to deploy your solution to different environments.  In the  variables element , you specify values that are reused throughout the template, or values\n that are constructed from other values (like parameters).  In the  resources element , you specify the components of your infrastructure. \nYou define as many resources as your solution needs.  In the  outputs element , you specify any values that are returned from the deployment \n(such as URIs from deployed resources).  Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. \nIf one resource relies on a value from another resource (such as a virtual machine needing a storage \naccount for disks), you set a dependency.  You do not have to define your entire infrastructure in a single template. Often, it makes sense to \ndivide your deployment requirements into a set of targeted, purpose-specific templates. \nYou can easily reuse these templates for different solutions. To deploy a particular solution, \nyou create a master template that links all the required templates.  You can also use the template for updates to the infrastructure. For example, you can add a resource\n to your solution and add configuration rules for the resources that are already deployed. \n If the template specifies creating a resource but that resource already exists, \n Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager \n updates the existing asset to the same state as it would be as new.",
+            "title": "Template deployment"
+        },
+        {
+            "location": "/azure-arm-intro/#practical-examples",
+            "text": "",
+            "title": "Practical Examples"
+        },
+        {
+            "location": "/azure-arm-deployment/",
+            "text": "Overview\n\u00b6\n\n\nThe solution we deploy consists of several components.\n\n\n\n\nA virtual network\n\n\nVirtual machines, storage, etc\n\n\nOperations Management Suite (Free)\n\n\noptional recovery services (backup)\n\n\noptional additional Virtual machines\n\n\noptional Azure SQL\n\n\n\n\n\n\nBelow you can find the detail per resource we deploy\n\n\n Azure deploy\n\u00b6\n\n\nThe azuredeploy.json is the entry point of the azure deployment. It really serves as the orchestration \nfile to call out to other deployments or resources.\n\nSingle instance resources will be deployed if defined as optional.\n\n\nIn the following topics we will elaborate on the different deployments or resources.\nWith a limited set of parameters we are able to rollout a full infrastructure.\nGiven the options we could identify 3 distinct deployment models\n\n\n\n\nSmall\n\n\nMedium\n\n\nLarge\n\n\n\n\nLet's dive into the different models\n\n\nSmall\n\u00b6\n\n\nThe small deployment comes down to the deployment of 1 virtual machine.\n\n\nan overview of the resources deployed\n\n\n\n\nThe following resources are deployed:\n\n\n\n\nNetwork\n\n\na virtual network with different subnets to support future growth\n\n\nnetwork security groups bound to the subnets to provide security\n\n\n\n\n\n\nInfrastructure\n\n\na storage account to host the disks for our virtual machine\n\n\na virtual machine of type DS2_V2\n\n\na network card to provide network connectivity\n\n\n\n\n\n\nOperations Management Suite\n\n\nOMS Workspace\n\n\nAzure Automation account\n\n\n\n\n\n\n\n\nIn addition the following resources can optionally be deployed:\n\n\n\n\nbackup services\n\n\na gateway to support onprem connectivity\n\n\nan Azure SQL server and database\n\n\nan additional Virtual machine\n\n\nstorage account\n\n\nvirtual machine\n\n\nnetwork card\n\n\n\n\n\n\n\n\nMedium\n\u00b6\n\n\nThe medium deployment does not differ from the small deployment except from the virtual machine sizing.\n\n\nInstead of a DS2_V2 a DS3_V2 is used instead for better performance\n\n\nan overview of the resources deployed\n\n\n\n\nFor more information see \nSmall deployment\n\n\nLarge\n\u00b6\n\n\nThe small deployment comes down to the deployment of 1 virtual machine.\n\n\nan overview of the resources deployed\n\n\n\n\nThe following resources are deployed:\n\n\n\n\nNetwork\n\n\na virtual network with different subnets to support future growth\n\n\nnetwork security groups bound to the subnets to provide security\n\n\n\n\n\n\nInfrastructure\n\n\na storage account to host the disks for our virtual machine\n\n\na virtual machine of type DS2_V2\n\n\na network card to provide network connectivity\n\n\n\n\n\n\nOperations Management Suite\n\n\nOMS Workspace\n\n\nAzure Automation account\n\n\n\n\n\n\n\n\nIn addition the following resources can optionally be deployed:\n\n\n\n\nbackup services\n\n\na gateway to support onprem connectivity\n\n\nan Azure SQL server and database\n\n\nan additional Virtual machine\n\n\nstorage account\n\n\nvirtual machine\n\n\nnetwork card\n\n\n\n\n\n\n\n\n Network deployment\n\u00b6\n\n\nFrom within the \nazuredeploy.json\n the network resources are deployed using a \ngeneric\n deployment resource.\nThe deployment resource references an ARM template (public available) containing the network resources.\n\n\nAs the picture below visualizes, the network ARM template contains several resources;\n\n\n\n\nthe virtual network\n\n\nthe network security groups\n\n\n\n\nfigure: Network deployment overview\n\nNetwork deployment overview\n\n\nVirtual network\n\u00b6\n\n\nThe ip range for the virtual network is captured in a variable and will be the same for every deployment.\nThe table below provides an overview of the ip ranges per subnet.\nBy default the management and gateway subnet are deployed, other subnets are deployed depending on the size of customer.\n\n\ntable: subnet overview\n\n\n\n\n\n\n\n\nSubnet\n\n\nSubnet name\n\n\nIP range\n\n\n\n\n\n\n\n\n\n\nmanagement\n\n\nsn-managementServices\n\n\n10.3.1.0/24\n\n\n\n\n\n\ngateway\n\n\nGatewaySubnet\n\n\n10.3.5.0/24\n\n\n\n\n\n\nDMZ *\n\n\nsn-dmzServices\n\n\n10.3.2.0/24\n\n\n\n\n\n\nEmergency *\n\n\nsn-emergencyServices\n\n\n10.3.4.0/24\n\n\n\n\n\n\n\n\n*depends on the customer size choosen during deployment\n\n\nNetwork security groups\n\u00b6\n\n\n\nNetwork security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny \nnetwork traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets \nor individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules \napply to all the VM instances in that subnet. In addition, traffic to an individual VM can be \nrestricted further by associating a NSG directly to that VM.\n\n\nLet's have a look at the different network security groups used in the solution.\n\n\nmanagement NSG\n\u00b6\n\n\nThe management network security group is deployed and linked to the corresponsong sn-managementServices\nsubnet as part of the virtual network.\nThe managementServices subnet hosts all 'management' services like for example domain controllers,\nfile servers, etc.\n\n\n\n\nDepending on customer size, different rules are deployed.\n\n\n\n\nsmall and medium\n\u00b6\n\n\ntable: small and medium size rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow  *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n3\n\n\nemergency-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n4\n\n\nemergency-pshttps-in-allow  *\n\n\ntcp\n\n\n10.\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nlarge\n\u00b6\n\n\ntable: large size rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow  *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n3\n\n\nemergency-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n4\n\n\nemergency-pshttps-in-allow  *\n\n\ntcp\n\n\n10.\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nDMZ NSG (large)\n\u00b6\n\n\nThe DMZ network security group is deployed and linked to the corresponsong sn-dmzServices\nsubnet as part of the virtual network.\nThe dmz services network security group contains the following rules:\n\n\ntable: large size rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow  *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n3\n\n\nemergency-rds-in-allow *\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n4\n\n\nemergency-pshttps-in-allow  *\n\n\ntcp\n\n\n10.\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nEmergency NSG (large)\n\u00b6\n\n\nThe emergency network security group is deployed and linked to the corresponsong sn-EmergencyServices\nsubnet as part of the virtual network.\nThe emergency services network security group contains the following rules:\n\n\ntable: rules overview\n\n\n\n\n\n\n\n\n#\n\n\nRule name\n\n\nprotocol\n\n\nsource range\n\n\nsource port\n\n\ndestination range\n\n\ndestination port\n\n\naccess\n\n\ndirection\n\n\n\n\n\n\n\n\n\n\n1\n\n\ninternet-rds-in-allow\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n3389\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n2\n\n\ninternet-pshttps-in-allow\n\n\ntcp\n\n\ninternet\n\n\n*\n\n\n*\n\n\n5986\n\n\nallow\n\n\ninbound\n\n\n\n\n\n\n\n\nFiles\n\u00b6\n\n\nFiles used in the deployment (depending on provided selection): \n\n\ntable: network templates overview\n\n\n\n\n\n\n\n\n#\n\n\nFilename\n\n\n\n\n\n\n\n\n\n\n1\n\n\nnetwork-small.json\n\n\n\n\n\n\n2\n\n\nnetwork-medium.json\n\n\n\n\n\n\n3\n\n\nnetwork-large.json\n\n\n\n\n\n\n\n\noptional parameter files are provided as well:\n\n\ntable: parameter files\n\n\n\n\n\n\n\n\n#\n\n\nFilename\n\n\n\n\n\n\n\n\n\n\n1\n\n\nnetwork-small.parameters.json\n\n\n\n\n\n\n2\n\n\nnetwork-medium.parameters.json\n\n\n\n\n\n\n3\n\n\nnetwork-large.parameters.json\n\n\n\n\n\n\n\n\nInfrastructure deployment\n\u00b6\n\n\nOMS Workspace deployment\n\u00b6\n\n\nSolutions\n\u00b6\n\n\nSoftware updates\n\u00b6\n\n\n\n\nSecurity and Compliance\n\u00b6\n\n\nPrevent, detect, and respond to threats with increased visibility. \n\n\nTake control of cloud security by defining policies that recommend and monitor security configurations. \nLeverage Microsoft security data and analysis to perform more intelligent and effective threat detection.\n\n\n\nChange tracking\n\u00b6\n\n\n\n\nAgent Heatlh\n\u00b6\n\n\n\n\nSaved searches\n\u00b6\n\n\nSaved searches help in identifying potential issues.\n\n\nquery 1\n\u00b6\n\n\nOMS Azure Automation deployment\n\u00b6\n\n\nAdditional services\n\u00b6\n\n\nAdditional VM\n\u00b6\n\n\nVPN gateway\n\u00b6\n\n\nAzure SQL database\n\u00b6\n\n\nSmall\n\u00b6",
+            "title": "ARM deployment"
+        },
+        {
+            "location": "/azure-arm-deployment/#overview",
+            "text": "The solution we deploy consists of several components.   A virtual network  Virtual machines, storage, etc  Operations Management Suite (Free)  optional recovery services (backup)  optional additional Virtual machines  optional Azure SQL    Below you can find the detail per resource we deploy",
+            "title": "Overview"
+        },
+        {
+            "location": "/azure-arm-deployment/#azure-deploy",
+            "text": "The azuredeploy.json is the entry point of the azure deployment. It really serves as the orchestration \nfile to call out to other deployments or resources. \nSingle instance resources will be deployed if defined as optional. \nIn the following topics we will elaborate on the different deployments or resources.\nWith a limited set of parameters we are able to rollout a full infrastructure.\nGiven the options we could identify 3 distinct deployment models   Small  Medium  Large   Let's dive into the different models",
+            "title": "Azure deploy"
+        },
+        {
+            "location": "/azure-arm-deployment/#small",
+            "text": "The small deployment comes down to the deployment of 1 virtual machine.  an overview of the resources deployed   The following resources are deployed:   Network  a virtual network with different subnets to support future growth  network security groups bound to the subnets to provide security    Infrastructure  a storage account to host the disks for our virtual machine  a virtual machine of type DS2_V2  a network card to provide network connectivity    Operations Management Suite  OMS Workspace  Azure Automation account     In addition the following resources can optionally be deployed:   backup services  a gateway to support onprem connectivity  an Azure SQL server and database  an additional Virtual machine  storage account  virtual machine  network card",
+            "title": "Small"
+        },
+        {
+            "location": "/azure-arm-deployment/#medium",
+            "text": "The medium deployment does not differ from the small deployment except from the virtual machine sizing.  Instead of a DS2_V2 a DS3_V2 is used instead for better performance  an overview of the resources deployed   For more information see  Small deployment",
+            "title": "Medium"
+        },
+        {
+            "location": "/azure-arm-deployment/#large",
+            "text": "The small deployment comes down to the deployment of 1 virtual machine.  an overview of the resources deployed   The following resources are deployed:   Network  a virtual network with different subnets to support future growth  network security groups bound to the subnets to provide security    Infrastructure  a storage account to host the disks for our virtual machine  a virtual machine of type DS2_V2  a network card to provide network connectivity    Operations Management Suite  OMS Workspace  Azure Automation account     In addition the following resources can optionally be deployed:   backup services  a gateway to support onprem connectivity  an Azure SQL server and database  an additional Virtual machine  storage account  virtual machine  network card",
+            "title": "Large"
+        },
+        {
+            "location": "/azure-arm-deployment/#network-deployment",
+            "text": "From within the  azuredeploy.json  the network resources are deployed using a  generic  deployment resource.\nThe deployment resource references an ARM template (public available) containing the network resources.  As the picture below visualizes, the network ARM template contains several resources;   the virtual network  the network security groups   figure: Network deployment overview \nNetwork deployment overview",
+            "title": "Network deployment"
+        },
+        {
+            "location": "/azure-arm-deployment/#virtual-network",
+            "text": "The ip range for the virtual network is captured in a variable and will be the same for every deployment.\nThe table below provides an overview of the ip ranges per subnet.\nBy default the management and gateway subnet are deployed, other subnets are deployed depending on the size of customer.  table: subnet overview     Subnet  Subnet name  IP range      management  sn-managementServices  10.3.1.0/24    gateway  GatewaySubnet  10.3.5.0/24    DMZ *  sn-dmzServices  10.3.2.0/24    Emergency *  sn-emergencyServices  10.3.4.0/24     *depends on the customer size choosen during deployment",
+            "title": "Virtual network"
+        },
+        {
+            "location": "/azure-arm-deployment/#network-security-groups",
+            "text": "Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny \nnetwork traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets \nor individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules \napply to all the VM instances in that subnet. In addition, traffic to an individual VM can be \nrestricted further by associating a NSG directly to that VM.  Let's have a look at the different network security groups used in the solution.",
+            "title": "Network security groups"
+        },
+        {
+            "location": "/azure-arm-deployment/#management-nsg",
+            "text": "The management network security group is deployed and linked to the corresponsong sn-managementServices\nsubnet as part of the virtual network.\nThe managementServices subnet hosts all 'management' services like for example domain controllers,\nfile servers, etc.   Depending on customer size, different rules are deployed.",
+            "title": "management NSG"
+        },
+        {
+            "location": "/azure-arm-deployment/#small-and-medium",
+            "text": "table: small and medium size rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  *  tcp  internet  *  *  5986  allow  inbound    3  emergency-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    4  emergency-pshttps-in-allow  *  tcp  10.  *  *  5986  allow  inbound",
+            "title": "small and medium"
+        },
+        {
+            "location": "/azure-arm-deployment/#large_1",
+            "text": "table: large size rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  *  tcp  internet  *  *  5986  allow  inbound    3  emergency-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    4  emergency-pshttps-in-allow  *  tcp  10.  *  *  5986  allow  inbound",
+            "title": "large"
+        },
+        {
+            "location": "/azure-arm-deployment/#dmz-nsg-large",
+            "text": "The DMZ network security group is deployed and linked to the corresponsong sn-dmzServices\nsubnet as part of the virtual network.\nThe dmz services network security group contains the following rules:  table: large size rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  *  tcp  internet  *  *  5986  allow  inbound    3  emergency-rds-in-allow *  tcp  internet  *  *  3389  allow  inbound    4  emergency-pshttps-in-allow  *  tcp  10.  *  *  5986  allow  inbound",
+            "title": "DMZ NSG (large)"
+        },
+        {
+            "location": "/azure-arm-deployment/#emergency-nsg-large",
+            "text": "The emergency network security group is deployed and linked to the corresponsong sn-EmergencyServices\nsubnet as part of the virtual network.\nThe emergency services network security group contains the following rules:  table: rules overview     #  Rule name  protocol  source range  source port  destination range  destination port  access  direction      1  internet-rds-in-allow  tcp  internet  *  *  3389  allow  inbound    2  internet-pshttps-in-allow  tcp  internet  *  *  5986  allow  inbound",
+            "title": "Emergency NSG (large)"
+        },
+        {
+            "location": "/azure-arm-deployment/#files",
+            "text": "Files used in the deployment (depending on provided selection):   table: network templates overview     #  Filename      1  network-small.json    2  network-medium.json    3  network-large.json     optional parameter files are provided as well:  table: parameter files     #  Filename      1  network-small.parameters.json    2  network-medium.parameters.json    3  network-large.parameters.json",
+            "title": "Files"
+        },
+        {
+            "location": "/azure-arm-deployment/#infrastructure-deployment",
+            "text": "",
+            "title": "Infrastructure deployment"
+        },
+        {
+            "location": "/azure-arm-deployment/#oms-workspace-deployment",
+            "text": "",
+            "title": "OMS Workspace deployment"
+        },
+        {
+            "location": "/azure-arm-deployment/#solutions",
+            "text": "",
+            "title": "Solutions"
+        },
+        {
+            "location": "/azure-arm-deployment/#software-updates",
+            "text": "",
+            "title": "Software updates"
+        },
+        {
+            "location": "/azure-arm-deployment/#security-and-compliance",
+            "text": "Prevent, detect, and respond to threats with increased visibility.   Take control of cloud security by defining policies that recommend and monitor security configurations. \nLeverage Microsoft security data and analysis to perform more intelligent and effective threat detection.",
+            "title": "Security and Compliance"
+        },
+        {
+            "location": "/azure-arm-deployment/#change-tracking",
+            "text": "",
+            "title": "Change tracking"
+        },
+        {
+            "location": "/azure-arm-deployment/#agent-heatlh",
+            "text": "",
+            "title": "Agent Heatlh"
+        },
+        {
+            "location": "/azure-arm-deployment/#saved-searches",
+            "text": "Saved searches help in identifying potential issues.",
+            "title": "Saved searches"
+        },
+        {
+            "location": "/azure-arm-deployment/#query-1",
+            "text": "",
+            "title": "query 1"
+        },
+        {
+            "location": "/azure-arm-deployment/#oms-azure-automation-deployment",
+            "text": "",
+            "title": "OMS Azure Automation deployment"
+        },
+        {
+            "location": "/azure-arm-deployment/#additional-services",
+            "text": "",
+            "title": "Additional services"
+        },
+        {
+            "location": "/azure-arm-deployment/#additional-vm",
             "text": "",
             "title": "Additional VM"
         },
         {
-            "location": "/azure-arm/#vpn-gateway",
+            "location": "/azure-arm-deployment/#vpn-gateway",
             "text": "",
             "title": "VPN gateway"
         },
         {
-            "location": "/azure-arm/#azure-sql-database",
+            "location": "/azure-arm-deployment/#azure-sql-database",
             "text": "",
             "title": "Azure SQL database"
         },
         {
-            "location": "/azure-arm/#small_1",
+            "location": "/azure-arm-deployment/#small_1",
             "text": "",
             "title": "Small"
         },
