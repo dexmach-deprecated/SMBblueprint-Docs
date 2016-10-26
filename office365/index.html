@@ -194,41 +194,42 @@
 <p>The cmdlet <strong>New-SMBOfficeDeployment</strong> can be used to initiate the deployment.</p>
 <p>The deployment needs to be started with a certain set of parameters that specify both the connection info towards the target tenant (PowerShell-parameters), as well as a CSV file that contains the user and group payload to be provisioned.</p>
 <pre><code>Note: For the full explanation of the parameters, refer to the PowerShell documentation of the Office deployment cmdlet.
-````
-
-### CSV
-
-The deployment needs a valid CSV file with the following information:
-
-* First (the first-name of the user)
-* Last (the last-name of the user)
-* Title (the user's title or function)
-* DisplayName (currently not in use)
-* Department (the user's department)
-* Office (the user's office location)
-* Mobile (the user's mobile phone number)
-* Country (the user's country, expressed as an [ISO-code](https://www.iso.org/obp/ui/#search))
-* Groups (the group to which the user should belong)
-    * If the group is mentioned for the first time, the associated user will be set as owner. Subsequent users that have the same group specified will be a regular member.
-    * The created groups will be private Office Groups
-* License (the license to assign to the user, expressed as the SKU code, which can be found using get-msolaccountsku -TenantId \&lt;ID of your CSP tenant\&gt;)
-    * You can get the tenant-id's under your CSP account by connecting to your root Azure AD with 'Connect-MSOLService' and then querying the tenants with 'Get-MSOLPartnerContract -All|select DefaultDomainName,TenantId'
-
-&gt;**Example CSV:**  
-First,Last,Title,DisplayName,Department,Office,Mobile,Country,Groups,License  
-Jan,Van Meirvenne,Consultant,Jan.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup1,O365_BUSINESS_PREMIUM  
-Jin,Van Meirvenne,Consultant,Jin.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,O365_BUSINESS_PREMIUM  
-Jon,Van Meirvenne,Consultant,Jon.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,O365_BUSINESS_PREMIUM 
-
-### Mail Domain
-
-Before this solution is used, a validated custom domain needs to be present in the tenant's configuration.
-By default, the tenant domain that is marked as default will be used as primary mail suffix. A specific domain can be chosen by providing the '-MailDomain &lt;MailDomainName&gt;' parameter (in the GUI, an option to control this is available as well).
-
 </code></pre>
 
-<p>Note: While using the standard <TenantName>@onmicrosoft.com suffix is not blocked, the user won't be able to send/receive mails.
-```</p>
+<h3 id="csv">CSV<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h3>
+<p>The deployment needs a valid CSV file with the following information:</p>
+<ul>
+<li>First (the first-name of the user)</li>
+<li>Last (the last-name of the user)</li>
+<li>Title (the user's title or function)</li>
+<li>DisplayName (currently not in use)</li>
+<li>Department (the user's department)</li>
+<li>Office (the user's office location)</li>
+<li>Mobile (the user's mobile phone number)</li>
+<li>Country (the user's country, expressed as an <a href="https://www.iso.org/obp/ui/#search">ISO-code</a>)</li>
+<li>Groups (the group to which the user should belong)<ul>
+<li>If the group is mentioned for the first time, the associated user will be set as owner. Subsequent users that have the same group specified will be a regular member.</li>
+<li>The created groups will be private Office Groups</li>
+</ul>
+</li>
+<li>License (the license to assign to the user, expressed as the SKU code, which can be found using get-msolaccountsku -TenantId \&lt;ID of your CSP tenant>)<ul>
+<li>You can get the tenant-id's under your CSP account by connecting to your root Azure AD with 'Connect-MSOLService' and then querying the tenants with 'Get-MSOLPartnerContract -All|select DefaultDomainName,TenantId'</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Example CSV:</strong><br />
+First,Last,Title,DisplayName,Department,Office,Mobile,Country,Groups,License<br />
+Jan,Van Meirvenne,Consultant,Jan.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup1,O365_BUSINESS_PREMIUM<br />
+Jin,Van Meirvenne,Consultant,Jin.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,O365_BUSINESS_PREMIUM<br />
+Jon,Van Meirvenne,Consultant,Jon.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,O365_BUSINESS_PREMIUM </p>
+</blockquote>
+<h3 id="mail-domain">Mail Domain<a class="headerlink" href="#mail-domain" title="Permanent link">&para;</a></h3>
+<p>Before this solution is used, a validated custom domain needs to be present in the tenant's configuration.
+By default, the tenant domain that is marked as default will be used as primary mail suffix. A specific domain can be chosen by providing the '-MailDomain <MailDomainName>' parameter (in the GUI, an option to control this is available as well).</p>
+<pre><code>Note: While using the standard &lt;TenantName&gt;@onmicrosoft.com suffix is not blocked, the user won't be able to send/receive mails.
+</code></pre>
+
 <h3 id="default-password">Default Password<a class="headerlink" href="#default-password" title="Permanent link">&para;</a></h3>
 <p>A parameter 'DefaultPassword' can be passed. This sets the initial logon for ALL users in the CSV to a specific password. If the parameter is omitted, a random password is generated.</p>
 <h2 id="preflight-check">Preflight check<a class="headerlink" href="#preflight-check" title="Permanent link">&para;</a></h2>
