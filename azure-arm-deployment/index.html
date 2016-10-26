@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>ARM deployment - SMB Blueprint</title>
+	<title>SMBblueprint deployment - SMB Blueprint</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -91,24 +91,9 @@
                         <ul class="dropdown-menu">
                         
                             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">PowerShell</a>
-    <ul class="dropdown-menu">
-        
-            
 <li >
-    <a href="../powershell-office365/">Office 365</a>
+    <a href="../office365/">Office 365</a>
 </li>
-
-        
-            
-<li >
-    <a href="../powershell-azure/">Azure</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                             
@@ -118,19 +103,19 @@
         
             
 <li >
-    <a href="../azure-smb-intro/">SMB overview</a>
+    <a href="../azure-arm-intro/">Resource Manager introduction</a>
 </li>
 
         
             
 <li >
-    <a href="../azure-arm-intro/">ARM introduction</a>
+    <a href="../azure-smb-intro/">SMBblueprint overview</a>
 </li>
 
         
             
 <li class="active">
-    <a href="./">ARM deployment</a>
+    <a href="./">SMBblueprint deployment</a>
 </li>
 
         
@@ -143,23 +128,8 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../microsoft/">Microsoft</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../inovativ/">Inovativ</a>
-</li>
-
-                        
-                        </ul>
+                    <li >
+                        <a href="../about/">About</a>
                     </li>
                 
                 
@@ -174,12 +144,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../azure-arm-intro/">
+                        <a rel="next" href="../azure-smb-intro/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../microsoft/">
+                        <a rel="prev" href="../about/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -233,7 +203,7 @@
 <li>optional additional Virtual machines</li>
 <li>optional Azure SQL</li>
 </ul>
-<p><img alt="Azure ARM template overview" src="../images\arm-template-overview.svg" /></p>
+<p><img alt="Azure ARM template overview" src="" /></p>
 <p>Below you can find the detail per resource we deploy</p>
 <h2 id="azure-deploy"><img alt="ARM" src="../images\ARMExplorer.svg" /> Azure deploy<a class="headerlink" href="#azure-deploy" title="Permanent link">&para;</a></h2>
 <p>The azuredeploy.json is the entry point of the azure deployment. It really serves as the orchestration 
@@ -252,7 +222,7 @@ Given the options we could identify 3 distinct deployment models</p>
 <h3 id="small">Small<a class="headerlink" href="#small" title="Permanent link">&para;</a></h3>
 <p>The small deployment comes down to the deployment of 1 virtual machine.</p>
 <p><em>an overview of the resources deployed</em></p>
-<p><img alt="Azure Portal small overview" src="../images\azure-portal-small-overview.png" title="Azure Portal small overview" /></p>
+<p>![Azure Portal small overview]( "Azure Portal small overview")</p>
 <p>The following resources are deployed:</p>
 <ul>
 <li>Network<ul>
@@ -624,7 +594,7 @@ The emergency services network security group contains the following rules:</p>
 </tr>
 </tbody>
 </table>
-<h4 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h4>
+<h3 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h3>
 <p>Files used in the deployment (depending on provided selection): </p>
 <p><sup><em>table: network templates overview</em></sup></p>
 <table>
@@ -674,6 +644,262 @@ The emergency services network security group contains the following rules:</p>
 </tbody>
 </table>
 <h2 id="infrastructure-deployment">Infrastructure deployment<a class="headerlink" href="#infrastructure-deployment" title="Permanent link">&para;</a></h2>
+<p>the infrastructure deployment template contains all resources to support to basic deployment once a network is provisioned.
+The resources deployed vary depending on the deployment size choosen.
+Below you can find an overview of the resources, their function and the files.</p>
+<h3 id="common-resources-smallmediumlarge">Common resources (small\medium\large)<a class="headerlink" href="#common-resources-smallmediumlarge" title="Permanent link">&para;</a></h3>
+<h4 id="virtual-machine">Virtual machine<a class="headerlink" href="#virtual-machine" title="Permanent link">&para;</a></h4>
+<p>As the Azure resource manager templates used are idempodent, the technology used to configure the virtual machines
+is idempodent as well. PowerShell DSC provides such a mechanism.<br />
+The virtual machine resoource supports several extension such as:</p>
+<ul>
+<li>PowerShell DSC</li>
+<li>OMS Agent</li>
+<li>Recovery services onboarding</li>
+<li>...</li>
+</ul>
+<p><sup><em>table: rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+</tbody>
+</table>
+<h4 id="network-card">network card<a class="headerlink" href="#network-card" title="Permanent link">&para;</a></h4>
+<p><sup><em>table: rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>#### public ip</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><sup><em>table: rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>#### storage account</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><sup><em>table: rules overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Rule name</th>
+<th>protocol</th>
+<th>source range</th>
+<th>source port</th>
+<th>destination range</th>
+<th>destination port</th>
+<th>access</th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>internet-rds-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>3389</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+<tr>
+<td>2</td>
+<td>internet-pshttps-in-allow</td>
+<td>tcp</td>
+<td>internet</td>
+<td>*</td>
+<td>*</td>
+<td>5986</td>
+<td>allow</td>
+<td>inbound</td>
+</tr>
+</tbody>
+</table>
+<h3 id="large-deployment">large deployment<a class="headerlink" href="#large-deployment" title="Permanent link">&para;</a></h3>
+<p>Two additional virtual machines are provisioned with the same characteristics as the common 'primary'
+virtual machines except for:</p>
+<ul>
+<li>vm roles<ul>
+<li>no domain services roles</li>
+<li>RDS session host</li>
+</ul>
+</li>
+</ul>
+<h3 id="files_1">Files<a class="headerlink" href="#files_1" title="Permanent link">&para;</a></h3>
+<p>Files used in the deployment of additional services</p>
+<p><sup><em>table: additional services templates overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>infrastructure-small.json</td>
+</tr>
+<tr>
+<td>2</td>
+<td>infrastructure-medium.json</td>
+</tr>
+<tr>
+<td>3</td>
+<td>infrastructure-large.json</td>
+</tr>
+</tbody>
+</table>
+<p>optional parameter files are provided as well:</p>
+<p><sup><em>table: parameter files</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>infrastructure-small.parameters.json</td>
+</tr>
+<tr>
+<td>2</td>
+<td>infrastructure-medium.parameters.json</td>
+</tr>
+<tr>
+<td>3</td>
+<td>infrastructure-large.parameters.json</td>
+</tr>
+</tbody>
+</table>
 <h2 id="oms-workspace-deployment">OMS Workspace deployment<a class="headerlink" href="#oms-workspace-deployment" title="Permanent link">&para;</a></h2>
 <h3 id="solutions">Solutions<a class="headerlink" href="#solutions" title="Permanent link">&para;</a></h3>
 <h4 id="software-updates">Software updates<a class="headerlink" href="#software-updates" title="Permanent link">&para;</a></h4>
@@ -693,9 +919,78 @@ Leverage Microsoft security data and analysis to perform more intelligent and ef
 <h2 id="oms-azure-automation-deployment">OMS Azure Automation deployment<a class="headerlink" href="#oms-azure-automation-deployment" title="Permanent link">&para;</a></h2>
 <h2 id="additional-services">Additional services<a class="headerlink" href="#additional-services" title="Permanent link">&para;</a></h2>
 <h3 id="additional-vm">Additional VM<a class="headerlink" href="#additional-vm" title="Permanent link">&para;</a></h3>
+<h3 id="recovery-services-backup">recovery services (backup)<a class="headerlink" href="#recovery-services-backup" title="Permanent link">&para;</a></h3>
 <h3 id="vpn-gateway">VPN gateway<a class="headerlink" href="#vpn-gateway" title="Permanent link">&para;</a></h3>
 <h3 id="azure-sql-database">Azure SQL database<a class="headerlink" href="#azure-sql-database" title="Permanent link">&para;</a></h3>
-<h4 id="small_1">Small<a class="headerlink" href="#small_1" title="Permanent link">&para;</a></h4></div>
+<h3 id="files_2">Files<a class="headerlink" href="#files_2" title="Permanent link">&para;</a></h3>
+<p>Files used in the deployment of additional services</p>
+<p><sup><em>table: additional services templates overview</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>vm-additional.json</td>
+</tr>
+<tr>
+<td>2</td>
+<td>recoveryservicesvault.json</td>
+</tr>
+<tr>
+<td>3</td>
+<td>recoveryservicesvault-none.json</td>
+</tr>
+<tr>
+<td>4</td>
+<td>gateway.json</td>
+</tr>
+<tr>
+<td>5</td>
+<td>gateway-none.json</td>
+</tr>
+<tr>
+<td>6</td>
+<td>sql-azure.json</td>
+</tr>
+<tr>
+<td>7</td>
+<td>sql-none.json</td>
+</tr>
+</tbody>
+</table>
+<p>optional parameter files are provided as well:</p>
+<p><sup><em>table: parameter files</em></sup></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>vm-additional.parameters.json</td>
+</tr>
+<tr>
+<td>2</td>
+<td>recoveryservicesvault.parameters.json</td>
+</tr>
+<tr>
+<td>3</td>
+<td>gateway.parameters.json</td>
+</tr>
+<tr>
+<td>4</td>
+<td>sql-azure.parameters.json</td>
+</tr>
+</tbody>
+</table></div>
             
         </div>
 

@@ -34,8 +34,8 @@
     
         
     <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
+     <loc>None/office365/</loc>
+     <lastmod>2016-10-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -48,19 +48,11 @@
     
 
     
-        
     <url>
-     <loc>None/microsoft/</loc>
+     <loc>None/about/</loc>
      <lastmod>2016-10-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>None/inovativ/</loc>
-     <lastmod>2016-10-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
 </urlset>

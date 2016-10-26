@@ -91,24 +91,9 @@
                         <ul class="dropdown-menu">
                         
                             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">PowerShell</a>
-    <ul class="dropdown-menu">
-        
-            
 <li >
-    <a href="../powershell-office365/">Office 365</a>
+    <a href="../office365/">Office 365</a>
 </li>
-
-        
-            
-<li >
-    <a href="../powershell-azure/">Azure</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                             
@@ -118,19 +103,19 @@
         
             
 <li >
-    <a href="../azure-smb-intro/">SMB overview</a>
+    <a href="../azure-arm-intro/">Resource Manager introduction</a>
 </li>
 
         
             
 <li >
-    <a href="../azure-arm-intro/">ARM introduction</a>
+    <a href="../azure-smb-intro/">SMBblueprint overview</a>
 </li>
 
         
             
 <li >
-    <a href="../azure-arm-deployment/">ARM deployment</a>
+    <a href="../azure-arm-deployment/">SMBblueprint deployment</a>
 </li>
 
         
@@ -143,23 +128,8 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../microsoft/">Microsoft</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../inovativ/">Inovativ</a>
-</li>
-
-                        
-                        </ul>
+                    <li >
+                        <a href="../about/">About</a>
                     </li>
                 
                 
@@ -234,37 +204,44 @@ or in the MSI-based installer (for PowerShell 3 and 4).</p>
 <p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=51451">Get PowerShellGet for PowerShell 3 &amp; 4</a></p>
 </li>
 </ul>
-<h4 id="msol-powershell-modules">MSOL powershell modules<a class="headerlink" href="#msol-powershell-modules" title="Permanent link">&para;</a></h4>
-<h4 id="exchange">Exchange<a class="headerlink" href="#exchange" title="Permanent link">&para;</a></h4>
+<h4 id="powershell-modules">PowerShell modules<a class="headerlink" href="#powershell-modules" title="Permanent link">&para;</a></h4>
+<p>The <em>SMBblueprint</em> module depends on several other PowerShell modules.
+Most of these modules are also available on the <a href="https://powershellgallery.com">PowerShell Gallery</a> 
+and will automatically install if not already present.</p>
+<h3 id="sharepoint-online-management-shell">SharePoint Online Management Shell<a class="headerlink" href="#sharepoint-online-management-shell" title="Permanent link">&para;</a></h3>
+<p>The SharePoint online Management shell is not available on the <a href="https://powershellgallery.com">PowerShell Gallery</a>
+and requires a seperate install.</p>
+<p>You can download the SharePoint Online Management Shell from the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=35588">Microsoft Download Center</a>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Open a PowerShell prompt as Administrator (right click and select <em>'Runas Administrator'</em>)</p>
 <p>locate the <strong>SMB Blueprint</strong> PowerShell module and install the module
 If you cannot install the module using administrative access, you can use the <em>-scope currentUser</em> parameter and value.</p>
 <blockquote>
-<p>You might receive a prompt to install nuget.exe</p>
-<p>You might be asked for confirmation to install</p>
+<p>You might receive a prompt to install nuget.exe<br />
+You might be asked for confirmation to install<br />
+Administrator rights are needed or install the module in the currentUser scope</p>
 </blockquote>
-<pre><code class="PowerShell">find-module SMBblueprint | install-module
+<pre><code class="PowerShell">Install-Module -Name SMBblueprint -scope currentUser -Force
 </code></pre>
 
-<p><img alt="PowerShell find module" src="../images\ps-findmodule.png" title="PowerShell find module and install" /></p>
+<p><img alt="PowerShell find module" src="../images\smbblueprint_install_gallery.png" title="PowerShell find module and install" /></p>
 <p>You can verify the installation by executing the following:</p>
 <pre><code class="PowerShell">Get-module -listAvailable | where-Object {$_.Name -like 'SMBblueprint'}
 </code></pre>
 
-<p><img alt="PowerShell list module" src="../images\ps-getmodule.png" title="PowerShell list module" /></p>
+<p><img alt="PowerShell list module" src="../images\smbblueprint_getmodule.png" title="PowerShell list module" /></p>
 <p>Import the module to load the functions</p>
 <pre><code class="PowerShell">import-module -Name SMBblueprint
 </code></pre>
 
-<p><img alt="PowerShell import module" src="../images\ps-importmodule.png" title="PowerShell import module" />
-Start the Graphical interface</p>
-<pre><code class="PowerShell">Start-SmbGui
+<p><img alt="PowerShell import module" src="../images\smbblueprint_import.png" title="PowerShell import module" /></p>
+<p>The SMBblueprint PowerShell module contains 3 public functions</p>
+<pre><code class="PowerShell">Get-command -Module SMBBlueprint
 </code></pre>
 
-<p><img alt="PowerShell start SMBblueprint GUI" src="../images\ps-startgui.png" title="PowerShell start SMBblueprint GUI" /></p>
+<p><img alt="PowerShell Get module commands" src="../images\smbblueprint_getcommand.png" title="PowerShell Get module commands" /></p>
 <h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
-<p>Locate the Guideliness to get started with <a href="gettingstarted-gui.md">the GUI</a> or use the <a href="gettingstarted-prompt.md">PowerShell prompt</a></p></div>
+<p>Locate the Guideliness to get started with <a href="../office365-install/">Office 365</a> deployments or the <a href="../azure-install/">Azure</a> deployment</p></div>
             
         </div>
 

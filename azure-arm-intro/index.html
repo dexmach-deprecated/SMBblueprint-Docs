@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>ARM introduction - SMB Blueprint</title>
+	<title>Resource Manager introduction - SMB Blueprint</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -91,24 +91,9 @@
                         <ul class="dropdown-menu">
                         
                             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">PowerShell</a>
-    <ul class="dropdown-menu">
-        
-            
 <li >
-    <a href="../powershell-office365/">Office 365</a>
+    <a href="../office365/">Office 365</a>
 </li>
-
-        
-            
-<li >
-    <a href="../powershell-azure/">Azure</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                             
@@ -117,20 +102,20 @@
     <ul class="dropdown-menu">
         
             
-<li >
-    <a href="../azure-smb-intro/">SMB overview</a>
-</li>
-
-        
-            
 <li class="active">
-    <a href="./">ARM introduction</a>
+    <a href="./">Resource Manager introduction</a>
 </li>
 
         
             
 <li >
-    <a href="../azure-arm-deployment/">ARM deployment</a>
+    <a href="../azure-smb-intro/">SMBblueprint overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../azure-arm-deployment/">SMBblueprint deployment</a>
 </li>
 
         
@@ -143,23 +128,8 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../microsoft/">Microsoft</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../inovativ/">Inovativ</a>
-</li>
-
-                        
-                        </ul>
+                    <li >
+                        <a href="../about/">About</a>
                     </li>
                 
                 
@@ -174,12 +144,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../azure-smb-intro/">
+                        <a rel="next" href="../office365/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../azure-arm-deployment/">
+                        <a rel="prev" href="../azure-smb-intro/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -212,8 +182,6 @@
         
             <li><a href="#template-deployment">Template deployment</a></li>
         
-            <li><a href="#practical-examples">Practical Examples</a></li>
-        
     
     </ul>
 </div></div>
@@ -231,15 +199,30 @@
 <li><strong>declarative syntax</strong> - Syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.</li>
 </ul>
 <h2 id="the-benefits-of-using-resource-manager">The benefits of using Resource Manager<a class="headerlink" href="#the-benefits-of-using-resource-manager" title="Permanent link">&para;</a></h2>
+<p><img alt="Azure Resource Manager template structure" src="../images\arm_deployment2.png" /></p>
 <p>Resource Manager provides several benefits:</p>
 <ul>
-<li>You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.</li>
-<li>You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.</li>
-<li>You can manage your infrastructure through declarative templates rather than scripts.</li>
-<li>You can define the dependencies between resources so they are deployed in the correct order.</li>
-<li>You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.</li>
-<li>You can apply tags to resources to logically organize all the resources in your subscription.</li>
-<li>You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.</li>
+<li>
+<p>You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.  </p>
+</li>
+<li>
+<p>You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.</p>
+</li>
+<li>
+<p>You can manage your infrastructure through declarative templates rather than scripts.</p>
+</li>
+<li>
+<p>You can define the dependencies between resources so they are deployed in the correct order.</p>
+</li>
+<li>
+<p>You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.</p>
+</li>
+<li>
+<p>You can apply tags to resources to logically organize all the resources in your subscription.</p>
+</li>
+<li>
+<p>You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.</p>
+</li>
 </ul>
 <h2 id="template-deployment">Template deployment<a class="headerlink" href="#template-deployment" title="Permanent link">&para;</a></h2>
 <p>With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.</p>
@@ -275,8 +258,7 @@ you create a master template that links all the required templates.</p>
  to your solution and add configuration rules for the resources that are already deployed. 
  If the template specifies creating a resource but that resource already exists, 
  Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager 
- updates the existing asset to the same state as it would be as new.</p>
-<h2 id="practical-examples">Practical Examples<a class="headerlink" href="#practical-examples" title="Permanent link">&para;</a></h2></div>
+ updates the existing asset to the same state as it would be as new.</p></div>
             
         </div>
 

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>SMB overview - SMB Blueprint</title>
+	<title>SMBblueprint overview - SMB Blueprint</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -91,24 +91,9 @@
                         <ul class="dropdown-menu">
                         
                             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">PowerShell</a>
-    <ul class="dropdown-menu">
-        
-            
 <li >
-    <a href="../powershell-office365/">Office 365</a>
+    <a href="../office365/">Office 365</a>
 </li>
-
-        
-            
-<li >
-    <a href="../powershell-azure/">Azure</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                             
@@ -117,20 +102,20 @@
     <ul class="dropdown-menu">
         
             
+<li >
+    <a href="../azure-arm-intro/">Resource Manager introduction</a>
+</li>
+
+        
+            
 <li class="active">
-    <a href="./">SMB overview</a>
+    <a href="./">SMBblueprint overview</a>
 </li>
 
         
             
 <li >
-    <a href="../azure-arm-intro/">ARM introduction</a>
-</li>
-
-        
-            
-<li >
-    <a href="../azure-arm-deployment/">ARM deployment</a>
+    <a href="../azure-arm-deployment/">SMBblueprint deployment</a>
 </li>
 
         
@@ -143,23 +128,8 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../microsoft/">Microsoft</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../inovativ/">Inovativ</a>
-</li>
-
-                        
-                        </ul>
+                    <li >
+                        <a href="../about/">About</a>
                     </li>
                 
                 
@@ -174,12 +144,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../powershell-azure/">
+                        <a rel="next" href="../azure-arm-intro/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../azure-arm-intro/">
+                        <a rel="prev" href="../azure-arm-deployment/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -204,25 +174,44 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#azure-deployment">Azure deployment</a></li>
+        <li class="main active"><a href="#smbblueprint-deployment">SMBblueprint deployment</a></li>
         
             <li><a href="#smb-categorization">SMB categorization</a></li>
         
-            <li><a href="#additional-services">Additional services</a></li>
+            <li><a href="#common-resources">Common resources</a></li>
+        
+            <li><a href="#size-specific-resources">Size specific resources</a></li>
+        
+            <li><a href="#additional-resources">Additional resources</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="azure-deployment">Azure deployment<a class="headerlink" href="#azure-deployment" title="Permanent link">&para;</a></h1>
+<h1 id="smbblueprint-deployment">SMBblueprint deployment<a class="headerlink" href="#smbblueprint-deployment" title="Permanent link">&para;</a></h1>
 <p><strong> SMB Blueprint </strong> also provides possibilities to deploy a set of azure resources.<br />
-The Azure resources deployed are categorized as 'small', 'medium' and 'large'.<br />
+The resources can be deployed using the graphical user interface or directly using PowerShell.
+The different resources are grouped together in different templates. A mean template will then call out to those templates.
+Below you can see how the different resources are grouped to logial components as:</p>
+<ul>
+<li>Virtual Network</li>
+<li>Infrastructure</li>
+<li>OMS</li>
+<li>additional services</li>
+</ul>
+<p><sup><em>figure: SMB resource deployment template structure</em></sup>
+<img alt="Azure deployment" src="../images\smbblueprint_azure_deployment.png" /></p>
+<p>In addition to the logical grouping a categorization needed based on the size of the company.  </p>
+<p>The Azure resources deployed are categorized as 'small', 'medium' and 'large'.<br />
 3 denominators targeted at  SMB clients of different sizes and needs.</p>
 <h2 id="smb-categorization">SMB categorization<a class="headerlink" href="#smb-categorization" title="Permanent link">&para;</a></h2>
-<p>The different deployments have been categorized by the number of users\employees to determine a size 
-of deployment.<br />
-The deployment serves as a starting point and is by no means limited to the set of 
+<p>The categorization allows to differentate on the number of the resources as well on the size of those resources.</p>
+<blockquote>
+<p>Example: 1 or more servers in the deployment model depending on the company size<br />
+Example: A Standard_DS1_v2 (basic VM) or a more powerfull VM size like Standard_DS3_V2</p>
+</blockquote>
+<p>The deployment serves as a starting point and is by no means limited to the set of 
 resources deployed by the SMB blueprint solution
 below you can find an overview of the different sizes.</p>
 <p><sup><em>table: categorization</em></sup></p>
@@ -231,38 +220,51 @@ below you can find an overview of the different sizes.</p>
 <tr>
 <th>Size</th>
 <th># users</th>
+<th align="center"># of servers</th>
+<th>server type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Small</td>
-<td>&lt; 10 users</td>
+<td>=&lt; 5 users</td>
+<td align="center">1</td>
+<td>Standard_DS1_v2 (1 CPU - 3.5 GB RAM)</td>
 </tr>
 <tr>
 <td>Medium</td>
-<td></td>
+<td>=&lt; 20 users</td>
+<td align="center">1</td>
+<td>Standard_DS2_v2 (2 CPU - 7 GB RAM)</td>
 </tr>
 <tr>
 <td>Large</td>
-<td></td>
+<td>=&lt; 50 users</td>
+<td align="center">3</td>
+<td>Standard_DS4_v2 (8 CPU - 28 GB RAM)</td>
 </tr>
 </tbody>
 </table>
+<p>Note that there is no increase in the number of servers between a small and medium deployment.</p>
 <p>In de following topics we will elaborate on the resources deployed per category.<br />
 But independend of the categorization a standard set of resources are deployed.</p>
+<blockquote>
 <p>For example; a virtual machine always needs a storage account and a network card
 The following resources will be deployed regardless of the type of deployment.</p>
-<p><sup>table: General resources</sup></p>
+</blockquote>
+<h2 id="common-resources">Common resources<a class="headerlink" href="#common-resources" title="Permanent link">&para;</a></h2>
+<h3 id="network-resources">Network resources<a class="headerlink" href="#network-resources" title="Permanent link">&para;</a></h3>
+<p><sup>table: General network resources</sup></p>
 <table>
 <thead>
 <tr>
-<th align="left">Resource type</th>
+<th align="left">Resource Category</th>
 <th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><strong> VNET </strong></td>
+<td align="left"><strong> Network </strong></td>
 <td align="left">The virtual network. The virtual network has a fixed ip range set to 10.3.0.0/16.</td>
 </tr>
 <tr>
@@ -277,18 +279,279 @@ The following resources will be deployed regardless of the type of deployment.</
 <td align="left"><strong> public IP </strong></td>
 <td align="left">a public ip address is created and assigned to each network card. A public ip enables external communications</td>
 </tr>
+</tbody>
+</table>
+<h3 id="infrastructure-resources">Infrastructure resources<a class="headerlink" href="#infrastructure-resources" title="Permanent link">&para;</a></h3>
+<p><sup>table: General infrastructure resources</sup></p>
+<table>
+<thead>
+<tr>
+<th align="left">Resource Category</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left"><strong> storage account </strong></td>
 <td align="left">a storage account per VM. the storage account will hold the vhd file(s) that hold the OS and possible extra data disks</td>
 </tr>
+<tr>
+<td align="left"><strong> Primary VM </strong></td>
+<td align="left">the virtual machine that will host the ADDS, DNS and RDS roles</td>
+</tr>
 </tbody>
 </table>
-<h3 id="small">small<a class="headerlink" href="#small" title="Permanent link">&para;</a></h3>
-<p>In a small scenario</p>
-<h3 id="medium">medium<a class="headerlink" href="#medium" title="Permanent link">&para;</a></h3>
-<h3 id="large">large<a class="headerlink" href="#large" title="Permanent link">&para;</a></h3>
-<h2 id="additional-services">Additional services<a class="headerlink" href="#additional-services" title="Permanent link">&para;</a></h2>
-<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3></div>
+<h3 id="operations-management-resources">Operations Management resources<a class="headerlink" href="#operations-management-resources" title="Permanent link">&para;</a></h3>
+<p><sup>table: General Operations management resources</sup></p>
+<table>
+<thead>
+<tr>
+<th align="left">Resource Category</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong> OMS workspace </strong></td>
+<td align="left">a storage account per VM. the storage account will hold the vhd file(s) that hold the OS and possible extra data disks</td>
+</tr>
+<tr>
+<td align="left"><strong> Automation Account </strong></td>
+<td align="left">the virtual machine that will host the ADDS, DNS and RDS roles</td>
+</tr>
+</tbody>
+</table>
+<h2 id="size-specific-resources">Size specific resources<a class="headerlink" href="#size-specific-resources" title="Permanent link">&para;</a></h2>
+<h3 id="small-and-medium">Small and medium<a class="headerlink" href="#small-and-medium" title="Permanent link">&para;</a></h3>
+<p>The small and medium deployments only differ in compute sizes and not in resources.
+The default resources deployed are:</p>
+<p><sup>table: small and medium deployment resources</sup></p>
+<table>
+<thead>
+<tr>
+<th align="left">Resource Category</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong> virtual machine </strong></td>
+<td align="left">The primary virtual machine. (sra-01))</td>
+</tr>
+<tr>
+<td align="left"><strong> storage account </strong></td>
+<td align="left">the storage account containing the vm vhd's (stauniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> network card </strong></td>
+<td align="left">The network card attached to the virtual machine (nic-sra-01)</td>
+</tr>
+<tr>
+<td align="left"><strong> public ip </strong></td>
+<td align="left">the public ip attached to the network card to enable communications (pip-sra-01)</td>
+</tr>
+<tr>
+<td align="left"><strong> virtual network </strong></td>
+<td align="left">the virtual network with a default addressprefix 10.3.0.0/16. (customername-vnet-default)</td>
+</tr>
+<tr>
+<td align="left"><strong> network security group </strong></td>
+<td align="left">the acl linked to the vnet subnet (nsg-management)</td>
+</tr>
+<tr>
+<td align="left"><strong> oms workspace </strong></td>
+<td align="left">the oms workspace (customername-oms-uniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> automation account </strong></td>
+<td align="left">the automation account containing the sample script to start\stop vms (customername-aa-uniqueid)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Small and medium deployment overview" src="../images\smbblueprint_small_medium.png" /></p>
+<h3 id="large">Large<a class="headerlink" href="#large" title="Permanent link">&para;</a></h3>
+<p>In a large deployment additional virtual machines are deployed to host the possible load of users connecting.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Resource Category</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong> virtual machine 1</strong></td>
+<td align="left">The primary virtual machine. (sra-01))</td>
+</tr>
+<tr>
+<td align="left"><strong> storage account 1</strong></td>
+<td align="left">the storage account containing the vm vhd's (stauniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> network card 1</strong></td>
+<td align="left">The network card attached to the virtual machine (nic-sra-01)</td>
+</tr>
+<tr>
+<td align="left"><strong> public ip 1</strong></td>
+<td align="left">the public ip attached to the network card to enable communications (pip-sra-01)</td>
+</tr>
+<tr>
+<td align="left"><strong> virtual machine 2</strong></td>
+<td align="left">The second virtual machine. (sra-02))</td>
+</tr>
+<tr>
+<td align="left"><strong> storage account 2</strong></td>
+<td align="left">the storage account containing the vm vhd's (stauniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> network card 2</strong></td>
+<td align="left">The network card attached to the virtual machine (nic-sra-02)</td>
+</tr>
+<tr>
+<td align="left"><strong> public ip 2</strong></td>
+<td align="left">the public ip attached to the network card to enable communications (pip-sra-02)</td>
+</tr>
+<tr>
+<td align="left"><strong> virtual machine 3</strong></td>
+<td align="left">The third virtual machine. (sra-03))</td>
+</tr>
+<tr>
+<td align="left"><strong> storage account 3</strong></td>
+<td align="left">the storage account containing the vm vhd's (stauniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> network card 3</strong></td>
+<td align="left">The network card attached to the virtual machine (nic-sra-03)</td>
+</tr>
+<tr>
+<td align="left"><strong> public ip 3</strong></td>
+<td align="left">the public ip attached to the network card to enable communications (pip-sra-03)</td>
+</tr>
+<tr>
+<td align="left"><strong> virtual machine jumpbox</strong></td>
+<td align="left">a jumpbox virtual machine. (sra-jumpbox))</td>
+</tr>
+<tr>
+<td align="left"><strong> storage account jumpbox</strong></td>
+<td align="left">the storage account containing the vm vhd's (stauniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> network card jumpbox</strong></td>
+<td align="left">The network card attached to the virtual machine (nic-sra-jumpbox)</td>
+</tr>
+<tr>
+<td align="left"><strong> public ip jumpbox</strong></td>
+<td align="left">the public ip attached to the network card to enable communications (pip-sra-jumpbox)</td>
+</tr>
+<tr>
+<td align="left"><strong> virtual network </strong></td>
+<td align="left">the virtual network with a default addressprefix 10.3.0.0/16. (customername-vnet-default)</td>
+</tr>
+<tr>
+<td align="left"><strong> network security group </strong></td>
+<td align="left">the acl linked to the vnet subnet (nsg-management)</td>
+</tr>
+<tr>
+<td align="left"><strong> oms workspace </strong></td>
+<td align="left">the oms workspace (customername-oms-uniqueid)</td>
+</tr>
+<tr>
+<td align="left"><strong> automation account </strong></td>
+<td align="left">the automation account containing the sample script to start\stop vms (customername-aa-uniqueid)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="large deployment overview" src="../images\smbblueprint_large.png" /></p>
+<h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<h3 id="azure-recovery-services">Azure recovery services<a class="headerlink" href="#azure-recovery-services" title="Permanent link">&para;</a></h3>
+<p>The foremost important additional service provides native backup capabilities.
+If opted in for the recovery services all Virtual machines in the default deployment <strong>and</strong> any additional VM's
+deployed using the SMBblueprint fast track solution are onboarded.</p>
+<p>In addition a default policy is created and assigned to the VM's.</p>
+<p><img alt="Additional virtual machine" src="../images\smbblueprint_extra_rsv.png" /></p>
+<h3 id="vpn-gateway">VPN gateway<a class="headerlink" href="#vpn-gateway" title="Permanent link">&para;</a></h3>
+<p>If a hybrid scenario is needed (onpremise and Azure resources connected) a VPN connection needs to be established.<br />
+The VPN will be deployed in a reserved subnet. The reserverd subnet is named Gateway subnet.<br />
+The default delpoyment already foresees the subnet and provides an ip range.</p>
+<p>A VPN gateway exists in different SKU's, but only the sku's below are deployed using the SMBblueprint solution</p>
+<p><img alt="Additional virtual machine" src="../images\smbblueprint_extra_vpn.png" /></p>
+<p><sup>table: Additional virtual machine deployment options</sup></p>
+<table>
+<thead>
+<tr>
+<th>deployment option</th>
+<th>characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>basic</td>
+<td>Basic edition (100 Mbps)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>After delpoyment additional configuration is needed</p>
+</blockquote>
+<p>Local networks and establishing the VPN connection is a manuel configuration after deployment.<br />
+A guide on the configuration can be found on the <a href="https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/">Microsoft Azure documentation center</a></p>
+<p><strong>Note:</strong> A VPN gateway deployment takes around 45min.</p>
+<h3 id="additional-virtual-machine">Additional virtual machine<a class="headerlink" href="#additional-virtual-machine" title="Permanent link">&para;</a></h3>
+<p>In addition to the default infrastructure being deployed you also have the option to deploy an additional
+virtual machine.<br />
+This enables organizations to deviate from the deployment characteristics determined by the size of the company.</p>
+<p>If you opted in on Azure recovery services to provide backup capabilities the virtual machine will also be 
+onboarded.</p>
+<p><img alt="Additional virtual machine" src="../images\smbblueprint_extra_vm.png" /></p>
+<p><sup>table: Additional virtual machine deployment options</sup></p>
+<table>
+<thead>
+<tr>
+<th>deployment option</th>
+<th>characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>small</td>
+<td>Standard_DS1_v2 (1 CPU - 3.5 GB RAM)</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>Standard_DS2_v2 (2 CPU - 7 GB RAM)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="azure-sql-database">Azure SQL database<a class="headerlink" href="#azure-sql-database" title="Permanent link">&para;</a></h3>
+<p>The deployment foresees the possibility to depoy an Azure SQL database in addition of the default infrastructure deployment.</p>
+<p><img alt="Azure SQL database" src="../images\smbblueprint_extra_sql.png" /></p>
+<p><sup>table: Azure SQL deployment options</sup></p>
+<table>
+<thead>
+<tr>
+<th>deployment option</th>
+<th>characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>small</td>
+<td>Basic edition</td>
+</tr>
+</tbody>
+</table></div>
             
         </div>
 

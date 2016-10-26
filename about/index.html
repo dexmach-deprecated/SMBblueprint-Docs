@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="User guide for the SMB blueprint solution.">
+        
         <meta name="author" content="Inovativ">
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>SMB Blueprint</title>
+	<title>About - SMB Blueprint</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -43,7 +43,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">SMB Blueprint</a>
+            <a class="navbar-brand" href="..">SMB Blueprint</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -53,8 +53,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Introduction</a>
+                    <li >
+                        <a href="..">Introduction</a>
                     </li>
                 
                 
@@ -65,19 +65,19 @@
                         
                             
 <li >
-    <a href="install/">installation</a>
+    <a href="../install/">installation</a>
 </li>
 
                         
                             
 <li >
-    <a href="office365-install/">Office 365</a>
+    <a href="../office365-install/">Office 365</a>
 </li>
 
                         
                             
 <li >
-    <a href="azure-install/">Azure</a>
+    <a href="../azure-install/">Azure</a>
 </li>
 
                         
@@ -92,7 +92,7 @@
                         
                             
 <li >
-    <a href="office365/">Office 365</a>
+    <a href="../office365/">Office 365</a>
 </li>
 
                         
@@ -103,19 +103,19 @@
         
             
 <li >
-    <a href="azure-arm-intro/">Resource Manager introduction</a>
+    <a href="../azure-arm-intro/">Resource Manager introduction</a>
 </li>
 
         
             
 <li >
-    <a href="azure-smb-intro/">SMBblueprint overview</a>
+    <a href="../azure-smb-intro/">SMBblueprint overview</a>
 </li>
 
         
             
 <li >
-    <a href="azure-arm-deployment/">SMBblueprint deployment</a>
+    <a href="../azure-arm-deployment/">SMBblueprint deployment</a>
 </li>
 
         
@@ -128,8 +128,8 @@
                 
                 
                 
-                    <li >
-                        <a href="about/">About</a>
+                    <li class="active">
+                        <a href="./">About</a>
                     </li>
                 
                 
@@ -143,13 +143,13 @@
                     </a>
                 </li>
                 
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="../azure-arm-deployment/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="install/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -174,48 +174,24 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#welcome-to-the-smb-blueprint">Welcome to the SMB Blueprint</a></li>
-        
-            <li><a href="#overview">Overview</a></li>
-        
-            <li><a href="#target-audience">Target Audience</a></li>
-        
-            <li><a href="#additional-info">Additional info</a></li>
+        <li class="main active"><a href="#about-smbblueprint">About SMBblueprint</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-the-smb-blueprint">Welcome to the SMB Blueprint<a class="headerlink" href="#welcome-to-the-smb-blueprint" title="Permanent link">&para;</a></h1>
-<p>The <em>SMB Blueprint</em> solution accelerator is a fast go to market solution to onboard Azure and Office 365.</p>
-<p>The Microsoft Cloud platform consists of a vast set of technologies that allow businesses to get productive very rapidly. <br />
-While the provisioning of IT resources has become a fast process, their design is still the resposibility of the business owners.<br />
-For small businesses that just want to get to work without spending budget and effort into their IT platform,<br />
-this turnkey solution has been build. This solution allows either the business owner or their hosting partners<br />
+<h1 id="about-smbblueprint">About SMBblueprint<a class="headerlink" href="#about-smbblueprint" title="Permanent link">&para;</a></h1>
+<p>The SMB Blueprint solution accelerator is a fast go to market solution to onboard Azure and Office 365.</p>
+<p>The Microsoft Cloud platform consists of a vast set of technologies that allow businesses to get productive very rapidly. 
+While the provisioning of IT resources has become a fast process, their design is still the resposibility of the business owners.
+For small businesses that just want to get to work without spending budget and effort into their IT platform,
+this turnkey solution has been build. This solution allows either the business owner or their hosting partners
 to quickly rollout an IT environment that adheres to Microsoft's best-practices and standards.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The solution consists of 2 building blocks. A PowerShell module and a set of Azure resource manager
-templates.
-The PowerShell module allows the execution of;</p>
-<ol>
-<li>The Infrastructure in Azure consisting of 1 or more Virtual Machines and management resources</li>
-<li>The Office 365 deployment, consisting of users, groups, etc </li>
-</ol>
-<p><img alt="solution index" src="./images\index_overview.png" /></p>
-<p>Information on how to use the fast track solution can be found in the installation guide.</p>
-<p>For technical information, browse to 'Technical overview', which contains, per deployment option, the
-technical details </p>
-<h2 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h2>
-<p>The targetted Audience are the CSP (Cloud Service Provider) partners. They can benefit from this solution
-accelerator to onboard new client using a fast track.</p>
-<h2 id="additional-info">Additional info<a class="headerlink" href="#additional-info" title="Permanent link">&para;</a></h2>
-<p>The solution can be used 'as is' to onboard client into Office 365 and\or Azure. If the need exists
-the provided scripts and templates can be leveraged as a starting point or can be directly integrated
-into existing portals and offerings.</p>
+<p>The solution is developed by Microsoft in collaboration with Inovativ</p>
 <hr />
 <p><div style="text-align:center">
-    <img src="images\Microsoft.png" alt="Microsoft" > <img src="images\inovativ.png" alt="Inovativ" >
+    <img src="..\images\Microsoft.png" alt="Microsoft" > <img src="..\images\inovativ.png" alt="Inovativ" >
 </div></p></div>
             
         </div>
@@ -226,12 +202,12 @@ into existing portals and offerings.</p>
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -260,8 +236,3 @@ into existing portals and offerings.</p>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 0.15.3
-Build Date UTC : 2016-10-26 21:45:16.937308
--->

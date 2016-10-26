@@ -59,7 +59,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -70,14 +70,14 @@
 
                         
                             
-<li class="active">
-    <a href="./">Office 365</a>
+<li >
+    <a href="../office365-install/">Office 365</a>
 </li>
 
                         
                             
 <li >
-    <a href="../azure/">Azure</a>
+    <a href="../azure-install/">Azure</a>
 </li>
 
                         
@@ -86,29 +86,14 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technical overview <b class="caret"></b></a>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">PowerShell</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../powershell-office365/">Office 365</a>
+<li class="active">
+    <a href="./">Office 365</a>
 </li>
-
-        
-            
-<li >
-    <a href="../powershell-azure/">Azure</a>
-</li>
-
-        
-    </ul>
-  </li>
 
                         
                             
@@ -118,13 +103,19 @@
         
             
 <li >
-    <a href="../azure-intro/">introduction</a>
+    <a href="../azure-arm-intro/">Resource Manager introduction</a>
 </li>
 
         
             
 <li >
-    <a href="../azure-arm/">Resource Manager deployment</a>
+    <a href="../azure-smb-intro/">SMBblueprint overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../azure-arm-deployment/">SMBblueprint deployment</a>
 </li>
 
         
@@ -137,23 +128,8 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../microsoft/">Microsoft</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../inovativ/">Inovativ</a>
-</li>
-
-                        
-                        </ul>
+                    <li >
+                        <a href="../about/">About</a>
                     </li>
                 
                 
@@ -168,12 +144,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../install/">
+                        <a rel="next" href="../azure-install/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../azure/">
+                        <a rel="prev" href="../azure-arm-intro/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -198,11 +174,100 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#office-365-user-group-provisioning">Office 365 User &amp; Group Provisioning</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#starting-the-deployment">Starting the deployment</a></li>
+        
+            <li><a href="#preflight-check">Preflight check</a></li>
+        
+            <li><a href="#provisioning">Provisioning</a></li>
+        
+            <li><a href="#review">Review</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-</div>
+<h1 id="office-365-user-group-provisioning">Office 365 User &amp; Group Provisioning<a class="headerlink" href="#office-365-user-group-provisioning" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Office 365 customers can be managed by their hosting partners using the <a href="https://partner.microsoft.com/en-us/cloud-solution-provider">CSP model</a>.</p>
+<p>This allows for hosting partner personnel to administrate the subscription without needing any direct connection with the customer itself.</p>
+<p>SMBBlueprint simplifies the initial provisioning of O365 users and (private) Office groups for a CSP tenant by providing a Powershell-based deployment workflow.</p>
+<h2 id="starting-the-deployment">Starting the deployment<a class="headerlink" href="#starting-the-deployment" title="Permanent link">&para;</a></h2>
+<p>The cmdlet <strong>New-SMBOfficeDeployment</strong> can be used to initiate the deployment.</p>
+<p>The deployment needs to be started with a certain set of parameters that specify both the connection info towards the target tenant (PowerShell-parameters), as well as a CSV file that contains the user and group payload to be provisioned.</p>
+<pre><code>Note: For the full explanation of the parameters, refer to the PowerShell documentation of the Office deployment cmdlet.
+````
+### CSV
+
+The deployment needs a valid CSV file with the following information:
+
+* First (the first-name of the user)
+* Last (the last-name of the user)
+* Title (the user's title or function)
+* DisplayName (currently not in use)
+* Department (the user's department)
+* Office (the user's office location)
+* Mobile (the user's mobile phone number)
+* Country (the user's country, expressed as an [ISO-code](https://www.iso.org/obp/ui/#search))
+* Groups (the group to which the user should belong)
+    * If the group is mentioned for the first time, the associated user will be set as owner. Subsequent users that have the same group specified will be a regular member.
+    * The created groups will be private Office Groups
+* License (the license to assign to the user, expressed as the SKU code, which can be found using get-msolaccountsku -TenantId \&lt;ID of your CSP tenant\&gt;)
+    * You can get the tenant-id's under your CSP account by connecting to your root Azure AD with 'Connect-MSOLService' and then querying the tenants with 'Get-MSOLPartnerContract -All|select DefaultDomainName,TenantId'
+
+&gt;**Example CSV:**  
+First,Last,Title,DisplayName,Department,Office,Mobile,Country,Groups,License  
+Jan,Van Meirvenne,Consultant,Jan.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup1,O365_BUSINESS_PREMIUM  
+Jin,Van Meirvenne,Consultant,Jin.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,O365_BUSINESS_PREMIUM  
+Jon,Van Meirvenne,Consultant,Jon.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,O365_BUSINESS_PREMIUM 
+
+### Mail Domain
+
+Before this solution is used, a validated custom domain needs to be present in the tenant's configuration.
+By default, the tenant domain that is marked as default will be used as primary mail suffix. A specific domain can be chosen by providing the '-MailDomain &lt;MailDomainName&gt;' parameter (in the GUI, an option to control this is available as well).
+</code></pre>
+
+<p>Note: While using the standard <TenantName>@onmicrosoft.com suffix is not blocked, the user won't be able to send/receive mails.
+```</p>
+<h3 id="default-password">Default Password<a class="headerlink" href="#default-password" title="Permanent link">&para;</a></h3>
+<p>A parameter 'DefaultPassword' can be passed. This sets the initial logon for ALL users in the CSV to a specific password. If the parameter is omitted, a random password is generated.</p>
+<h2 id="preflight-check">Preflight check<a class="headerlink" href="#preflight-check" title="Permanent link">&para;</a></h2>
+<p>Before starting the provisioning, a few conditions are checked:
+<em> The CSP credential must be valid
+</em> The entered Tenant ID or Domain must be present in the CSP partner's directory
+*<em> Note: Do not confuse the tenant-domain with the tenant's own domains. The tenant domain is the value that is shown in the CSP portal, and not the tenant's admin portal!
+</em> The licenses specified in the CSV-file must not be more that the ones available in the subscription</p>
+<h3 id="csp-admin-account">CSP Admin account<a class="headerlink" href="#csp-admin-account" title="Permanent link">&para;</a></h3>
+<p>Not all resources can be reliably deployed by the CSP model currently. This consists of:
+<em> Onedrive For Business
+</em> Office 365 groups</p>
+<p>To work around this limitation, the deployment will use the CSP credential to create an admin user within the tenant itself, and proceed to use this last one to configure the restricted resources.
+The password for this user is randomly generated and renewed everytime the SMbBlueprint solution is ran. This means that the CSP admin user can not be used for login without manually resetting the password.
+The password is not stored in any outputs.</p>
+<h2 id="provisioning">Provisioning<a class="headerlink" href="#provisioning" title="Permanent link">&para;</a></h2>
+<p>When all checks are passed OK, the CSV information is used to commence the actual provisioning.</p>
+<p>This happens in the following order:
+1) Create the users in the tenant's Azure AD, set the password and license information
+<em> If a user already exists, no action is performed
+2) Connect to the Exchange interface of O365 and create the groups. Assign ownership based on the CSV-information.
+</em> If a group already exists, no action is performed
+3) Populate the standard memberships for the created groups
+4) Bulk provision all created users' OneDrive using the Sharepoint Online Management shell</p>
+<h2 id="review">Review<a class="headerlink" href="#review" title="Permanent link">&para;</a></h2>
+<p>When the provisioning completes, an object is returned containing the following information:
+<em> Type (the deployment-type. This will be 'Office' for deployments started with this function)
+</em> Duration (the duration of the deployment)
+<em> Status (Provides status-information for the deployment)
+    * Configuration (contains several outputs of the deployment)
+        * ProvisionedUsers (a list of all provisioned users including login-information)
+        * ProvisionedGroups (a list of all provisioned office groups)
+</em> Completed (equals 'TRUE' if the deployment is done)
+<em> Error (if an exception occured during the deployment, it will be stored here)
+</em> Log (the full location of the logfile for the deployment)</p></div>
             
         </div>
 
