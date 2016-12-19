@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>installation - SMB Blueprint</title>
+	<title>ChangeLog - SMB Blueprint</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -59,13 +59,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">installation</a>
+<li >
+    <a href="../install/">installation</a>
 </li>
 
                         
@@ -128,8 +128,8 @@
                 
                 
                 
-                    <li >
-                        <a href="../changelog/">ChangeLog</a>
+                    <li class="active">
+                        <a href="./">ChangeLog</a>
                     </li>
                 
                 
@@ -144,12 +144,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="..">
+                        <a rel="next" href="../about/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../office365-install/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -174,74 +174,60 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#installation-guideliness">Installation Guideliness</a></li>
+        <li class="main active"><a href="#changelog">ChangeLog</a></li>
         
-            <li><a href="#prerequisites">Prerequisites</a></li>
-        
-            <li><a href="#installation">Installation</a></li>
+            <li><a href="#0007-19-december-2016">0.0.0.7 (19 December 2016)</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="installation-guideliness">Installation Guideliness<a class="headerlink" href="#installation-guideliness" title="Permanent link">&para;</a></h1>
-<p>Using the solution accelerator is quite simple, but some pre-requisites need to met.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>the following pre-requisites need to be met before installing the solution accelerator:</p>
-<h4 id="powershell-packagemanager">PowerShell packagemanager<a class="headerlink" href="#powershell-packagemanager" title="Permanent link">&para;</a></h4>
-<p>Installing items from the Gallery requires the latest version of the PowerShellGet module, which is 
-available in Windows 10, in Windows Management Framework (WMF) 5.0, 
-or in the MSI-based installer (for PowerShell 3 and 4).</p>
+<h1 id="changelog">ChangeLog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<p>This page contains an overview on all changes to the solution as new versions are released.
+Use the following command to update your current module version to the latest one:</p>
+<pre><code class="PowerShell">update-module smbblueprint -scope currentuser
+</code></pre>
+
+<p><strong>NOTE: Only the 2 latest version are actively supported. To ensure a stable deployment experience, it is advised to update to the latest release as soon as possible.</strong></p>
+<h2 id="0007-19-december-2016">0.0.0.7 (19 December 2016)<a class="headerlink" href="#0007-19-december-2016" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><a href="https://www.microsoft.com/en-us/windows/get-windows-10?&amp;SEMID=1&amp;WT.srch=1&amp;ocid=Win10Upgrade_SEM_GOO_MSBranded_ACTV_en-US_windows%2010&amp;wt.mc_id=Win10Upgrade_SEM_GOO_MSBranded_ACTV_en-US_windows%2010">Get windows 10</a></p>
-</li>
-<li>
-<p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=50395">Get latest WMF (windows Management Framework)</a></p>
-</li>
-<li>
-<p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=51451">Get PowerShellGet for PowerShell 3 &amp; 4</a></p>
+<li>Multi-Region Support<ul>
+<li>Azure<ul>
+<li>The CLI Command 'New-SMBAzureDeployment' now has the additional parameters 'Location' and 'FallbackLocation'<ul>
+<li>The 'Location' parameter supports any Azure location name (eg westeurope). The resources will be deployed in the given location.</li>
+<li>The 'FallbackLocation' parameter is used to specify where resources that are not supported in the chosen location should be deployed. This applies to the monitoring and automation resources, which are not widely available at the moment.
+The supported fallback locations are:<ul>
+<li>westeurope</li>
+<li>southeastasia</li>
+<li>australiasoutheast</li>
+</ul>
 </li>
 </ul>
-<h4 id="powershell-modules">PowerShell modules<a class="headerlink" href="#powershell-modules" title="Permanent link">&para;</a></h4>
-<p>The <em>SMBblueprint</em> module depends on several other PowerShell modules.
-Most of these modules are also available on the <a href="https://powershellgallery.com">PowerShell Gallery</a> 
-and will automatically install if not already present.</p>
-<h3 id="sharepoint-online-management-shell">SharePoint Online Management Shell<a class="headerlink" href="#sharepoint-online-management-shell" title="Permanent link">&para;</a></h3>
-<p>The SharePoint online Management shell is not available on the <a href="https://powershellgallery.com">PowerShell Gallery</a>
-and requires a seperate install.</p>
-<p>You can download the SharePoint Online Management Shell from the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=35588">Microsoft Download Center</a>.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>Open a PowerShell prompt as Administrator (right click and select <em>'Runas Administrator'</em>)</p>
-<p>locate the <strong>SMB Blueprint</strong> PowerShell module and install the module
-If you cannot install the module using administrative access, you can use the <em>-scope currentUser</em> parameter and value.</p>
-<blockquote>
-<p>You might receive a prompt to install nuget.exe<br />
-You might be asked for confirmation to install<br />
-Administrator rights are needed or install the module in the currentUser scope</p>
-</blockquote>
-<pre><code class="PowerShell">Install-Module -Name SMBblueprint -scope currentUser -Force
-</code></pre>
-
-<p><img alt="PowerShell find module" src="../images\smbblueprint_install_gallery.png" title="PowerShell find module and install" /></p>
-<p>You can verify the installation by executing the following:</p>
-<pre><code class="PowerShell">Get-module -listAvailable | where-Object {$_.Name -like 'SMBblueprint'}
-</code></pre>
-
-<p><img alt="PowerShell list module" src="../images\smbblueprint_getmodule.png" title="PowerShell list module" /></p>
-<p>Import the module to load the functions</p>
-<pre><code class="PowerShell">import-module -Name SMBblueprint
-</code></pre>
-
-<p><img alt="PowerShell import module" src="../images\smbblueprint_import.png" title="PowerShell import module" /></p>
-<p>The SMBblueprint PowerShell module contains 3 public functions</p>
-<pre><code class="PowerShell">Get-command -Module SMBBlueprint
-</code></pre>
-
-<p><img alt="PowerShell Get module commands" src="../images\smbblueprint_getcommand.png" title="PowerShell Get module commands" /></p>
-<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
-<p>Locate the Guideliness to get started with <a href="../office365-install/">Office 365</a> deployments or the <a href="../azure-install/">Azure</a> deployment</p></div>
+</li>
+<li>The GUI follows the CLI changes by adding additional controls and prompts to generate the correct command for the deployment.</li>
+<li>NOTE: For some locations, the backup feature is not yet supported. If one of these locations is chosen, the backup option will be disabled. The backup feature can not be deployed to the fallback location as it must exist in the same location as the VM resources.</li>
+</ul>
+</li>
+<li>Office<ul>
+<li>The GUI now allows you to specify any country when adding users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Server 2016 support<ul>
+<li>The 'New-SMBAzureDeployment' cmdlet now has a 'OS' parameter allowing you to deploy Server 2016 or 2012R2 VM resources</li>
+<li>The GUI allows you to control this parameter through an added dropdown menu in the Azure options section.</li>
+</ul>
+</li>
+<li>General bugfixes and improvements<ul>
+<li>The login-screen now accepts the 'enter'-key to execute the logon procedure</li>
+<li>Experimental changes to the UI to make it more compact</li>
+<li>Fixed a possible deployment failure situation when the backup option was enabled and no additional VM was specified</li>
+<li>Other internal or minor fixes</li>
+</ul>
+</li>
+</ul></div>
             
         </div>
 

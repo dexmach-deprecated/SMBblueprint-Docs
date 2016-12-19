@@ -127,6 +127,12 @@
                     </li>
                 
                 
+                
+                    <li >
+                        <a href="../changelog/">ChangeLog</a>
+                    </li>
+                
+                
                 </ul>
             
 
@@ -211,10 +217,17 @@ to launch the SMBblueprint GUI;</p>
 <li>Select the correct subscription (in larger environments multiple subscriptions can exist)</li>
 <li>Choose a deployment category (for an overview of the different resources per category consult
  the <a href="../azure-smb-intro/">overview</a>)</li>
+<li>Choose the Azure location where the solution must be deployed.<ul>
+<li>Note: some locations do not support the automation and monitoring resources of the solution. In that case you will be prompted to select a fallback location for the impacted resources.</li>
+</ul>
+</li>
 <li>Select any additional services needed<ul>
 <li>an additional VM size</li>
 <li>an extra Azure SQL database</li>
-<li>Backup services (note; if selected all vm's deployed will be automatically protected)</li>
+<li>Backup services (note; if selected all vm's deployed will be automatically protected)<ul>
+<li>Note: some locations do not support the backup feature. In that case you will be prompted and the option will be disabled.</li>
+</ul>
+</li>
 <li>A VPN gateway (although you will still need to setup the connection)</li>
 </ul>
 </li>
@@ -262,6 +275,9 @@ This example will deploy a small SMB scenario to the Contoso.com CSP tenant with
     AdditionalVMSize = 'medium'
     AdditionalSQLInstanceSize = 'small'
     VPN = 'basic'
+    OS = '2016'
+    Location = 'northeurope'
+    FallbackLocation = 'westeurope'
 }
 Start-SMBBlueprintDeployment @properties
 </code></pre></div>
