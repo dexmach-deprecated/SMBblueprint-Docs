@@ -176,6 +176,8 @@
     
         <li class="main active"><a href="#changelog">ChangeLog</a></li>
         
+            <li><a href="#0008-10-february-2017">0.0.0.8 (10 February 2017)</a></li>
+        
             <li><a href="#0007-19-december-2016">0.0.0.7 (19 December 2016)</a></li>
         
     
@@ -190,6 +192,56 @@ Use the following command to update your current module version to the latest on
 </code></pre>
 
 <p><strong>NOTE: Only the 2 latest version are actively supported. To ensure a stable deployment experience, it is advised to update to the latest release as soon as possible.</strong></p>
+<h2 id="0008-10-february-2017">0.0.0.8 (10 February 2017)<a class="headerlink" href="#0008-10-february-2017" title="Permanent link">&para;</a></h2>
+<h3 id="office-365">Office 365<a class="headerlink" href="#office-365" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Office 365 Multi-License support<ul>
+<li>Both the GUI as CSV interfaces now allow the specification of multiple licenses to assign for new users</li>
+<li>The CSV format is updated as followed:<ul>
+<li>The License header has become licenses</li>
+<li>When multiple License SKU's are specified, they must be separated with a '|' character<blockquote>
+<p><strong>Example CSV:</strong><br />
+First,Last,Title,DisplayName,Department,Office,Mobile,Country,Groups,Licenses<br />
+Jan,Van Meirvenne,Consultant,Jan.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup1,ADALLOM_O365|POWER_BI_STANDARD<br />
+Jin,Van Meirvenne,Consultant,Jin.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,ADALLOM_O365|POWER_BI_STANDARD<br />
+Jon,Van Meirvenne,Consultant,Jon.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGroup10,ADALLOM_O365|POWER_BI_STANDARD  </p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Configurable Storage Tier for Azure Compute<ul>
+<li>In the GUI, a new dropdown allows you to choose the storage type to use for the virtual machines</li>
+<li>In the CLI, a new parameter StorageType can be used to specify the desired storage Tier</li>
+<li>Possible Values:<ul>
+<li>Standard_LRS (default)</li>
+<li>Standard_ZRS</li>
+<li>Standard_GRS</li>
+<li>Standard_RAGRS</li>
+<li>Premium_LRS</li>
+</ul>
+</li>
+<li>Check <a href="https://docs.microsoft.com/en-us/azure/storage/storage-introduction">this</a> resource for more info on the different storage types </li>
+</ul>
+</li>
+</ul>
+<h3 id="general-bugfixes-and-improvements">General bugfixes and improvements<a class="headerlink" href="#general-bugfixes-and-improvements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You can now define a custom password for the Office/Azure deployment from the GUI<ul>
+<li>A complexity check is added and will alert on a insecure password for both CLI/GUI operations</li>
+</ul>
+</li>
+<li>The solution now fully supports both CSP and non-CSP accounts</li>
+<li>Azure / Office deployment options are hidden in the GUI if no appropriate subscription is available</li>
+<li>When running a CLI or GUI command, an update-check will be performed and alert you if your module version is out-of-update<ul>
+<li>You can add the '-NoUpdateCheck' to any command to disable this behavior</li>
+</ul>
+</li>
+</ul>
 <h2 id="0007-19-december-2016">0.0.0.7 (19 December 2016)<a class="headerlink" href="#0007-19-december-2016" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Multi-Region Support<ul>

@@ -213,7 +213,9 @@ to launch the SMBblueprint GUI;</p>
 <p><img alt="SMBblueprint GUI login" src="../images\smbblueprint_azure_authentication.png" /></p>
 <ul>
 <li>Select the Azure tab in the taks pane on the left</li>
-<li>Provide the deployment characteristics<ul>
+<li>
+<p>Provide the deployment characteristics</p>
+<ul>
 <li>Select the correct subscription (in larger environments multiple subscriptions can exist)</li>
 <li>Choose a deployment category (for an overview of the different resources per category consult
  the <a href="../azure-smb-intro/">overview</a>)</li>
@@ -221,7 +223,10 @@ to launch the SMBblueprint GUI;</p>
 <li>Note: some locations do not support the automation and monitoring resources of the solution. In that case you will be prompted to select a fallback location for the impacted resources.</li>
 </ul>
 </li>
-<li>Select any additional services needed<ul>
+<li>Choose a desired storage type for the virtual machines</li>
+<li>
+<p>Select any additional services needed</p>
+<ul>
 <li>an additional VM size</li>
 <li>an extra Azure SQL database</li>
 <li>Backup services (note; if selected all vm's deployed will be automatically protected)<ul>
@@ -231,8 +236,10 @@ to launch the SMBblueprint GUI;</p>
 <li>A VPN gateway (although you will still need to setup the connection)</li>
 </ul>
 </li>
-<li>the customer name or abbriviation. (this will be used as a prefix for all resource deployments 
-and the domainname)  </li>
+<li>
+<p>the customer name or abbriviation. (this will be used as a prefix for all resource deployments 
+and the domainname)  </p>
+</li>
 </ul>
 </li>
 </ul>
@@ -262,6 +269,7 @@ This example will deploy a small SMB scenario to the Contoso.com CSP tenant with
 <li>1 Additional Azure SQL instance (small size)</li>
 <li>1 basic VPN gateway</li>
 <li>Backup of the essential and additional machines</li>
+<li>Premium Storage for the VM's</li>
 </ul>
 </li>
 </ul>
@@ -278,6 +286,7 @@ This example will deploy a small SMB scenario to the Contoso.com CSP tenant with
     OS = '2016'
     Location = 'northeurope'
     FallbackLocation = 'westeurope'
+    StorageType = 'Premium_LRS'
 }
 Start-SMBBlueprintDeployment @properties
 </code></pre></div>
