@@ -285,7 +285,8 @@ This example will deploy a small SMB scenario to the Contoso.com CSP tenant with
     VPN = 'basic'
     OS = '2016'
     Location = 'northeurope'
-    FallbackLocation = 'westeurope'
+    LogAnalyticsLocation= 'westeurope'
+    AutomationLocation = 'eastus'
     StorageType = 'Premium_LRS'
 }
 Start-SMBBlueprintDeployment @properties

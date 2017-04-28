@@ -176,6 +176,8 @@
     
         <li class="main active"><a href="#changelog">ChangeLog</a></li>
         
+            <li><a href="#820-28-april-2017">8.2.0 (28 April 2017)</a></li>
+        
             <li><a href="#8100-12-march-2017">8.1.0.0 (12 March 2017)</a></li>
         
             <li><a href="#0008-10-february-2017">0.0.0.8 (10 February 2017)</a></li>
@@ -195,8 +197,42 @@ Use the following command to update your current module version to the latest on
 
 <p><strong>NOTE: Only the 2 latest version are actively supported. To ensure a stable deployment experience, it is advised to update to the latest release as soon as possible.</strong></p>
 <p><strong>NOTE: Issues and feature requests can now be submitted at <a href="https://github.com/Inovativ/Feedback/issues">GitHub</a>. You'll need to create a GitHub account for this, which will be used to notify you on the status of your submission.</strong>*</p>
-<h2 id="8100-12-march-2017">8.1.0.0 (12 March 2017)<a class="headerlink" href="#8100-12-march-2017" title="Permanent link">&para;</a></h2>
+<h2 id="820-28-april-2017">8.2.0 (28 April 2017)<a class="headerlink" href="#820-28-april-2017" title="Permanent link">&para;</a></h2>
 <h3 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The OS disks of the deployed VM's (with the exception of the jumpbox server) will have a different size based on the chosen customer size. For now, this can only be changed by modifying the template. The disk size can be modified in the Azure portal post-deployment (VM shutdown required).</p>
+<ul>
+<li>Small: 250Gb</li>
+<li>Medium: 500Gb</li>
+<li>Large: 1000Gb</li>
+</ul>
+</li>
+<li>
+<p>The Fallback Location feature has been enhanced. There is now a dedicated parameter for both the Log Analytics and Automation location.</p>
+<ul>
+<li>In the GUI, you will have the options and prompts if needed to modify the value of these parameters</li>
+<li>In the CLI, you will be prompted for one or both locations if the primary location does not support the impacted resources. You can use the '-LogAnalyticsLocation' and '-AutomationLocation' parameters to use this feature in your scripts.</li>
+</ul>
+</li>
+<li>
+<p>Bugfixes</p>
+<ul>
+<li>The jumpbox's OMS agent now deploys succesfully</li>
+</ul>
+</li>
+</ul>
+<h3 id="office">Office<a class="headerlink" href="#office" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No changes in this release</li>
+</ul>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Some minor UI optimizations</li>
+<li>Solved an issue with the module dependency version requirements, causing Azure login failures in some cases  (thanks to Ben Gelens for providing the fix for this!)</li>
+</ul>
+<h2 id="8100-12-march-2017">8.1.0.0 (12 March 2017)<a class="headerlink" href="#8100-12-march-2017" title="Permanent link">&para;</a></h2>
+<h3 id="azure_1">Azure<a class="headerlink" href="#azure_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Virtual machines will now be deployed with <a href="https://azure.microsoft.com/en-us/services/managed-disks/">managed disks</a> at no additional cost</li>
 <li>A deployment based on Server 2016 should no longer time-out<ul>
@@ -211,7 +247,7 @@ Use the following command to update your current module version to the latest on
 <ul>
 <li>When assigning Advanced Threat Protection licenses, a default set of policies will automatically be provisioned</li>
 </ul>
-<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<h3 id="general_1">General<a class="headerlink" href="#general_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Dependencies on both the MSOnline, Sign-In Assistant and Sharepoint module are GONE<ul>
 <li>The solution can now be fully installed with only resources from the PowerShell gallery</li>
@@ -242,7 +278,7 @@ Jon,Van Meirvenne,Consultant,Jon.VanMeirvenne,ICT,Inovativ,32478707741,BE,TestGr
 </ul>
 </li>
 </ul>
-<h3 id="azure_1">Azure<a class="headerlink" href="#azure_1" title="Permanent link">&para;</a></h3>
+<h3 id="azure_2">Azure<a class="headerlink" href="#azure_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Configurable Storage Tier for Azure Compute<ul>
 <li>In the GUI, a new dropdown allows you to choose the storage type to use for the virtual machines</li>
