@@ -8,4 +8,4 @@ For small businesses that just want to get to work without spending budget and e
 this turnkey solution has been build. This solution allows either the business owner or their hosting partners  
 to quickly rollout an IT environment that adheres to Microsoft's best-practices and standards.
 
-[Click here for the documentation site](https://inovativ.github.io/SMBblueprint-Docs/)
+[Click here for the documentation site](https://itnetxbe.github.io/SMBblueprint-Docs/)
